@@ -1,6 +1,8 @@
-from multiprocessing import Process
+# from multiprocessing import Process,Pipe
+# from multiprocessing import Process,Pipe
 import server_module as s
-import var
+import multiprocessing
+# import var
 import PostgreSQL as PS
 
 
@@ -13,11 +15,19 @@ def foo():
 def post():
 	PS.postgres_version()
 
+def receive_data(conn):  # ДАННЫЕ ПОЛУЧИТЬ
+	while True:
+		print('[Получить данные] % s' % conn.recv())
+
 def server_start():
 	s.start_server()
 
 if __name__ == '__main__':
-	p1 = Process(target=post)
+	# conn_send, conn_recv = multiprocessing.Pipe()  # трубопровод
+
+	# p1 = Process(target=post)
+	p1 = multiprocessing.Process(target=foo)
 	p1.start()
-	p2 = Process(target=server_start)
+	# p2 = Process(target=server_start)
+	p2 = multiprocessing.Process(target=server_start)
 	p2.start()

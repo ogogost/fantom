@@ -2,7 +2,7 @@ import psycopg2
 from psycopg2 import Error
 from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 
-dn = "postgres_db"
+dn = "postgres"
 du = "postgres"
 dp = "defender32"
 dh = "127.0.0.1"
@@ -79,3 +79,34 @@ def create_table():
             cursor.close()
             connection.close()
             print("Connection to database is closed")
+
+def insert_data(v1,v2):
+    # self.data = data
+    connection = None
+    cursor = None
+    try:
+        connection = psycopg2.connect(cs)
+        connection.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
+        cursor = connection.cursor()
+        insertion = ("insert into test (cash,user_name) values (%s,%s)")
+        cursor.executemany(insertion, (v1,v2))
+        # print("")
+
+    except (Exception, Error) as error:
+        print("Error", error)
+
+def select_all():
+    connection = None
+    cursor = None
+    try:
+        connection = psycopg2.connect(cs)
+        connection.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
+        cursor = connection.cursor()
+        sql = 'select * from test'
+        cursor.execute(sql)
+        print(cursor.fetchall())
+        # for row in cursor:
+        #     print(row)
+    except (Exception, Error) as error:
+        print("Error", error)
+

@@ -1,27 +1,25 @@
 import socket
 from _thread import *
 import var as v
-from multiprocessing import Queue
 
 
-def threaded_client(connection):
+def threaded_client(connection, que):
     connection.send(str.encode('Welcome to the Server'))
     while True:
-        q = Queue()
         data = connection.recv(2048)
         if data.decode('utf-8') == '0':
             break
-        q.put(data.decode('utf-8'))
+        que.put(data.decode('utf-8'))
         reply = "Server Says: " + data.decode('utf-8')
-        v.list_of_var.append(data.decode('utf-8'))
-        print(v.list_of_var)
+        # v.list_of_var.append(data.decode('utf-8'))
+        # print(v.list_of_var)
         connection.sendall(str.encode(reply))
     connection.close()
     print('connection closed')
     print('Waiting for a Connection..')
 
 
-def start_server():
+def start_server(que):
 
     server_socket = socket.socket()
     thread_count = 0
@@ -37,6 +35,6 @@ def start_server():
     while True:
         client, address = server_socket.accept()
         print('Connected to: ' + address[0] + ':' + str(address[1]))
-        start_new_thread(threaded_client, (client,))
+        start_new_thread(threaded_client, ((client),(que)))
         thread_count += 1
         print('Thread Number: ' + str(thread_count))
