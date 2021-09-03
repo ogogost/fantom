@@ -1,13 +1,12 @@
-from multiprocessing import Process, Queue
-import server_module2 as s # модуль для работы по сети
-import PostgreSQL as PS # модуль для работы с БД постгрес
-from psycopg2 import Error
-import psycopg2
+from multiprocessing import Process, Queue  # модуль для многопроцессовой работы, и работы с очередями (обмен данных между процессами)
+import server_module2 as s  # модуль для работы по сети
+import PostgreSQL as PS  # модуль для работы с БД постгрес
+from psycopg2 import Error  # выдача кода ошибок
+import psycopg2  # модуль для работы с постгрес
 from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
-# import var
 
 
-def receive_data(q):
+def main_circle(q):
 	PS.connection = None
 	PS.cursor = None
 	connection = psycopg2.connect(PS.cs)
@@ -20,22 +19,44 @@ def receive_data(q):
 		try:
 			v1 = data.split(',')
 			cursor.execute(insertion, v1)
-			print('[Полученные данные] % s' % v1)
+			print('[Полученные данные (test2)] % s' % v1)
+			sql = 'select * from test2'
+			cursor.execute(sql)
+			print(cursor.fetchall())
 		except (Exception, Error) as error:
 			print("Error", error)
 
-	# connection.commit()
-	cursor.close()
-	connection.close()
+def add_circle(q):
+	PS.connection = None
+	PS.cursor = None
+	connection = psycopg2.connect(PS.cs)
+	connection.autocommit = False
+	connection.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
+	cursor = connection.cursor()
+	insertion = ("insert into test3 (cash,user_name) values (%s,%s)")
+	while True:
+		data = q.get()
+		try:
+			v1 = data.split(',')
+			cursor.execute(insertion, v1)
+			print('[Полученные данные (test3)] % s' % v1)
+			sql = 'select * from test3'
+			cursor.execute(sql)
+			print(cursor.fetchall())
+		except (Exception, Error) as error:
+			print("Error", error)
 
 
-def server_start(que):
-	s.start_server(que)
+def socket_server_start(que1,que2):
+	s.start_server(que1,que2)
 
 
 if __name__ == '__main__':
 	queue = Queue()
-	p1 = Process(target=receive_data, args=((queue),))
+	queue2 = Queue()
+	p1 = Process(target=main_circle, args=((queue),))
 	p1.start()
-	p2 = Process(target=server_start, args=((queue),))
+	p2 = Process(target=socket_server_start, args=((queue),(queue2)))
 	p2.start()
+	p3 = Process(target=add_circle, args=((queue2),))
+	p3.start()
