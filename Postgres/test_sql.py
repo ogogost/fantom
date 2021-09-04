@@ -84,7 +84,7 @@ def select_name(name):
         connection = psycopg2.connect(cs)
         connection.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
         cursor = connection.cursor()
-        cursor.executemany('SELECT * from test2 where user_name=%s', str(name))
+        cursor.execute("SELECT * from test2 where user_name='%s'" % (name))
         print(cursor.fetchone())
 
     except (Exception, Error) as error:
