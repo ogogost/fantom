@@ -4,7 +4,12 @@ import var as v
 
 
 def threaded_client(connection, que_1, que_2):
-    connection.send(str.encode('Welcome to the Server'))
+    connection.send(str.encode('Welcome to the Server! Please, say your name:'))
+    name = connection.recv(2048)
+    check_name(name)
+
+
+
     while True:
         data = connection.recv(2048)
         if data.decode('utf-8') == '0':
@@ -17,7 +22,6 @@ def threaded_client(connection, que_1, que_2):
         connection.sendall(str.encode(reply))
     connection.close()
     print('connection closed')
-    print('Waiting for a Connection..')
 
 
 def start_server(que_1, que_2):
@@ -36,6 +40,12 @@ def start_server(que_1, que_2):
     while True:
         client, address = server_socket.accept()
         print('Connected to: ' + address[0] + ':' + str(address[1]))
+        print(client)
+        print(address)
         start_new_thread(threaded_client, ((client),(que_1),(que_2)))
         thread_count += 1
         print('Thread Number: ' + str(thread_count))
+
+
+def check_name(name):
+    sql = "SELECT %s into "
