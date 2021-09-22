@@ -1,8 +1,8 @@
 dn = "postgres"
 du = "postgres"
-dp = "defender32"
+dp = "Wizard132"
 dh = "127.0.0.1"
-dbp = "5433"
+dbp = "5432"
 dt = "table1"
 
 cs = "dbname=%s user=%s password=%s host=%s port=%s" % (dn, du, dp, dh, dbp)

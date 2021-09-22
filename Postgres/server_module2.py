@@ -1,25 +1,22 @@
 import socket
 from _thread import *
-import var as v
-
 import psycopg2
 from psycopg2 import Error
 from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 
 dn = "postgres"
 du = "postgres"
-dp = "defender32"
+dp = "Wizard132"
 dh = "127.0.0.1"
-dbp = "5433"
+dbp = "5432"
 dt = "table1"
-
 cs = "dbname=%s user=%s password=%s host=%s port=%s" % (dn, du, dp, dh, dbp)
+host = '127.0.0.1'
+port = 2000
 
 
 def threaded_client(connection, que_1, que_2):
-    connection.send(str.encode('Welcome to the Server! Please, say your name:'))
-    name = (connection.recv(2048)).decode('utf-8')
-    check_user_name(name)
+    connection.send(str.encode('Welcome to the Server!'))
 
     while True:
         data = connection.recv(2048)
@@ -28,8 +25,6 @@ def threaded_client(connection, que_1, que_2):
         que_1.put(data.decode('utf-8'))
         que_2.put(data.decode('utf-8'))
         reply = "Server Says: " + data.decode('utf-8')
-        # v.list_of_var.append(data.decode('utf-8'))
-        # print(v.list_of_var)
         connection.sendall(str.encode(reply))
     connection.close()
     print('connection closed')
@@ -41,7 +36,7 @@ def start_server(que_1, que_2):
     thread_count = 0
 
     try:
-        server_socket.bind((v.host, v.port))
+        server_socket.bind((host, port))
     except socket.error as e:
         print(str(e))
 
@@ -57,9 +52,9 @@ def start_server(que_1, que_2):
         thread_count += 1
         print('Thread Number: ' + str(thread_count))
 
+
 def check_user_name(name):
-    # connection = None
-    # cursor = None
+
     try:
         connection = psycopg2.connect(cs)
         connection.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
