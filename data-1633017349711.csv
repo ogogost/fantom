@@ -1,0 +1,11 @@
+"id","user_name","password","cash","ticker","ticker_amount"
+1,"galsan                        ","fantom100           ",100000000,"aapl",1000
+2,"bot1                          ","passw               ",10000,"aapl",50
+3,"bot2                          ","ff555e              ",1000,"aapl",30
+4,"bot3                          ","gfg44w              ",100000,"aapl",70
+5,"bot4                          ","xx00e               ",108000,"aapl",90
+6,"MarketMaker1                  ","zorro               ",10000000,"aapl",10000
+7,"Big_fish                      ","zero                ",10000000,"aapl",95000
+8,"hamster                       ","123                 ",30000,"aapl",50
+9,"owl                           ","wisdom              ",30000,"aapl",100
+10,"mouse                         ","no                  ",3000,"aapl",5
