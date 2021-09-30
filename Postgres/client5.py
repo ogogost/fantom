@@ -2,7 +2,7 @@ import socket
 
 ClientSocket = socket.socket()
 host = '127.0.0.1'
-port = 1233
+port = 2000
 
 print('Waiting for connection')
 try:
@@ -12,9 +12,8 @@ except socket.error as e:
 
 Response = ClientSocket.recv(1024)
 while True:
+    print(ClientSocket.recv(1024).decode('utf-8'))
     Input = input('Say Something: ')
     ClientSocket.send(str.encode(Input))
     Response = ClientSocket.recv(1024)
     print(Response.decode('utf-8'))
-
-ClientSocket.close()

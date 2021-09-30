@@ -2,7 +2,6 @@ import socket
 from _thread import *
 import psycopg2
 from psycopg2 import Error
-from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 
 dn = "postgres"
 du = "postgres"
@@ -17,6 +16,9 @@ port = 2000
 
 def threaded_client(connection, que_1, que_2):
     connection.send(str.encode('Welcome to the Server!'))
+    connection.send(str.encode('Send your name'))
+    name = connection.recv(2048)
+    check_user_name(name.decode('utf-8'))
 
     while True:
         data = connection.recv(2048)
@@ -57,10 +59,9 @@ def check_user_name(name):
 
     try:
         connection = psycopg2.connect(cs)
-        connection.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
         cursor = connection.cursor()
-        cursor.execute("SELECT * from test2 where user_name='%s'" % (name))
-        print('Your name is:', cursor.fetchone()[2])
+        cursor.execute("SELECT * from clients where user_name='%s'" % (name))
+        print('Your name is:', cursor.fetchone())
 
     except (Exception, Error) as error:
-        print("Error", error)
+        print("Error:", error)

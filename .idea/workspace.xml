@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="22ef6a0b-a799-42ea-9696-00125e5ee605" name="Changes" comment="300921" />
+    <list default="true" id="22ef6a0b-a799-42ea-9696-00125e5ee605" name="Changes" comment="300921">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Postgres/client5.py" beforeDir="false" afterPath="$PROJECT_DIR$/Postgres/client5.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Postgres/server_module2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Postgres/server_module2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/archive/Server/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/archive/stock_exchange/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock_exchange/ClientBook.py" beforeDir="false" afterPath="$PROJECT_DIR$/archive/stock_exchange/ClientBook.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock_exchange/MatchingEngine.py" beforeDir="false" afterPath="$PROJECT_DIR$/archive/stock_exchange/MatchingEngine.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock_exchange/OrderBook.py" beforeDir="false" afterPath="$PROJECT_DIR$/archive/stock_exchange/OrderBook.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock_exchange/Some_examples.py" beforeDir="false" afterPath="$PROJECT_DIR$/archive/stock_exchange/Some_examples.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,6 +25,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1xqsjFpaRIyo7066uRHU584lu2n" />
   <component name="ProjectViewState">
@@ -38,8 +55,8 @@
       <recent name="C:\Users\asus1\PycharmProjects\fantom\archive" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.client6">
-    <configuration name="PostgreSQL(Asus Lena)_3" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.client5">
+    <configuration name="client5" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="fantom" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -51,7 +68,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Postgres/PostgreSQL(Asus Lena)_3.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Postgres/client5.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -81,27 +98,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="mappool" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="fantom" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Postgres" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Postgres/mappool.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="mappool_3" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="fantom" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -115,6 +111,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Postgres/mappool_3.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="server_module2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="fantom" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Postgres" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Postgres/server_module2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -146,11 +163,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.client5" />
+        <item itemvalue="Python.mappool_3" />
+        <item itemvalue="Python.server_module2" />
         <item itemvalue="Python.client6" />
         <item itemvalue="Python.test12" />
-        <item itemvalue="Python.mappool_3" />
-        <item itemvalue="Python.PostgreSQL(Asus Lena)_3" />
-        <item itemvalue="Python.mappool" />
       </list>
     </recent_temporary>
   </component>
@@ -177,7 +194,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633019261995</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="300921">
+      <created>1633019588386</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1633019588386</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
