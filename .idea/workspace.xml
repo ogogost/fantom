@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="22ef6a0b-a799-42ea-9696-00125e5ee605" name="Changes" comment="300921">
+    <list default="true" id="22ef6a0b-a799-42ea-9696-00125e5ee605" name="Changes" comment="300921-2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Postgres/client5.py" beforeDir="false" afterPath="$PROJECT_DIR$/Postgres/client5.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Postgres/server_module2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Postgres/server_module2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/Server/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/archive/stock_exchange/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock_exchange/ClientBook.py" beforeDir="false" afterPath="$PROJECT_DIR$/archive/stock_exchange/ClientBook.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock_exchange/MatchingEngine.py" beforeDir="false" afterPath="$PROJECT_DIR$/archive/stock_exchange/MatchingEngine.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock_exchange/OrderBook.py" beforeDir="false" afterPath="$PROJECT_DIR$/archive/stock_exchange/OrderBook.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock_exchange/Some_examples.py" beforeDir="false" afterPath="$PROJECT_DIR$/archive/stock_exchange/Some_examples.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,7 +194,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633019588386</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="300921-2">
+      <created>1633033534459</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1633033534459</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -221,6 +221,7 @@
     <MESSAGE value="120921 наконец написал скрипт для наполнения таблицы с ботами" />
     <MESSAGE value="220921" />
     <MESSAGE value="300921" />
-    <option name="LAST_COMMIT_MESSAGE" value="300921" />
+    <MESSAGE value="300921-2" />
+    <option name="LAST_COMMIT_MESSAGE" value="300921-2" />
   </component>
 </project>
