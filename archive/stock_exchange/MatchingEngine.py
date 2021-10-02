@@ -1,7 +1,6 @@
 import OrderBook
 import ClientBook
 from ordered_set import OrderedSet
-from sortedcontainers import SortedDict
 
 
 class MatchingEngine(OrderBook.OrderBook, ClientBook.ClientBook):
