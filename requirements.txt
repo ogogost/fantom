@@ -1,6 +1,0 @@
-psycopg2==2.9.1
-pip~=20.2.4
-numpy~=1.19.2
-setuptools~=47.1.0
-tqdm~=4.62.2
-PyQt5~=5.15.1

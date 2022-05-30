@@ -1,17 +1,17 @@
 import sqlite3 as sl
-from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtCore import Qt
-import sys, os
-import bot
+from PyQt5 import QtCore, QtWidgets
+import sys
+import os
 
 # Variables
 data_base_path = 'test.db'
+
 
 class Ui_MainWindow(object):
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1920, 1080)
+        MainWindow.resize(800, 600)
         MainWindow.showFullScreen()
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -52,7 +52,7 @@ class Ui_MainWindow(object):
         # button 6
         self.pushButton_6 = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_6.setGeometry(QtCore.QRect(40, 280, 100, 30))
-        self.pushButton_6.setText("Удаление Таблицы")
+        self.pushButton_6.setText("Удаление таблицы")
 
         # button 7
         self.pushButton_7 = QtWidgets.QPushButton(self.centralwidget)
@@ -64,7 +64,11 @@ class Ui_MainWindow(object):
         self.pushButton_8.setGeometry(QtCore.QRect(40, 360, 100, 30))
         self.pushButton_8.setText("Добавка строки")
 
-
+        # qline
+        self.lineEdit_1 = QtWidgets.QLineEdit(self.centralwidget)
+        self.lineEdit_1.setGeometry(QtCore.QRect(190, 120, 200, 40))
+        self.lineEdit_1.setText("Variable1")
+        self.lineEdit_1.setMaxLength(20)
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
@@ -89,14 +93,19 @@ class mywindow(QtWidgets.QMainWindow):
         self.ui.setupUi(self)
         self.ui.pushButton_1.clicked.connect(self.exit_function)
         self.ui.pushButton_2.clicked.connect(self.create_db_function)
-        self.ui.pushButton_3.clicked.connect(self.creat_table_function)
+        self.ui.pushButton_3.clicked.connect(self.create_table_function)
         self.ui.pushButton_4.clicked.connect(self.create_data_function)
         self.ui.pushButton_5.clicked.connect(self.show_data_function)
         self.ui.pushButton_6.clicked.connect(self.erase_db_table_function)
         self.ui.pushButton_7.clicked.connect(self.erase_db_function)
+        self.ui.lineEdit_1.editingFinished(self.lineEdit_1_event)
         # self.ui.pushButton_8.clicked.connect(self.add_data_to_table)
         # self.ui.pushButton_8.clicked.connect(self.add_data_to_table(4, 'M', 'market', 'buy', 800, 5, 'YNDX', 'time'))
         self.initUi()
+
+    def lineEdit_1_event(self):
+        self.
+
 
     def initUi(self):
         self.statusBar().showMessage('Ready')
@@ -109,7 +118,7 @@ class mywindow(QtWidgets.QMainWindow):
         self.statusBar().showMessage(str((con)) + 'path:' + data_base_path)
         con.close()
 
-    def creat_table_function(self):
+    def create_table_function(self):
         con = sl.connect(data_base_path)
         # cursor = con.cursor()
         try:
@@ -157,8 +166,6 @@ class mywindow(QtWidgets.QMainWindow):
             self.statusBar().showMessage(str(e))
         con.close()
 
-    # def bot1(self):
-    #     bot.generator_of_shit(con)
 
     def show_data_function(self):
         con = sl.connect(data_base_path)
