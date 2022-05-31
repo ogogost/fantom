@@ -67,8 +67,9 @@ class Ui_MainWindow(object):
         # qline
         self.lineEdit_1 = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_1.setGeometry(QtCore.QRect(190, 120, 200, 40))
-        self.lineEdit_1.setText("Variable1")
-        self.lineEdit_1.setMaxLength(20)
+        # self.lineEdit_1.setText("Variable1")
+        self.lineEdit_1.setMaxLength(100)
+        self.lineEdit_1.setInputMask('HHH:HHH')
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
@@ -98,13 +99,16 @@ class mywindow(QtWidgets.QMainWindow):
         self.ui.pushButton_5.clicked.connect(self.show_data_function)
         self.ui.pushButton_6.clicked.connect(self.erase_db_table_function)
         self.ui.pushButton_7.clicked.connect(self.erase_db_function)
-        self.ui.lineEdit_1.editingFinished(self.lineEdit_1_event)
+        self.ui.lineEdit_1.editingFinished.connect(self.lineEdit_1_event)
         # self.ui.pushButton_8.clicked.connect(self.add_data_to_table)
+        # self.ui.pushButton_8.clicked.connect(self.lineEdit_1_event)
         # self.ui.pushButton_8.clicked.connect(self.add_data_to_table(4, 'M', 'market', 'buy', 800, 5, 'YNDX', 'time'))
         self.initUi()
 
+
     def lineEdit_1_event(self):
-        self.
+        self.statusBar().showMessage(str(self.ui.lineEdit_1.text()))
+
 
 
     def initUi(self):

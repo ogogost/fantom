@@ -2,145 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="22ef6a0b-a799-42ea-9696-00125e5ee605" name="Changes" comment="300921-2">
-      <change beforePath="$PROJECT_DIR$/.idea/fantom.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/fantom.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/Server/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/archive/Server/server.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/not_GUI_version.py" beforeDir="false" afterPath="$PROJECT_DIR$/not_GUI_version.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/test.db" beforeDir="false" afterPath="$PROJECT_DIR$/test.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/_distutils_hack/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-21.2.4.dist-info/INSTALLER" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-21.2.4.dist-info/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-21.2.4.dist-info/METADATA" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-21.2.4.dist-info/RECORD" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-21.2.4.dist-info/REQUESTED" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-21.2.4.dist-info/WHEEL" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-21.2.4.dist-info/entry_points.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-21.2.4.dist-info/top_level.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/build_env.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/build_env.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/cli/spinners.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/cli/spinners.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/commands/completion.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/commands/completion.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/commands/configuration.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/commands/configuration.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/commands/debug.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/commands/debug.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/commands/download.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/commands/download.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/commands/help.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/commands/help.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/commands/index.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/commands/wheel.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/commands/wheel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/distributions/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/distributions/base.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/distributions/installed.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/distributions/installed.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/distributions/wheel.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/distributions/wheel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/index/package_finder.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/index/package_finder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/index/sources.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/locations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/locations/_distutils.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/locations/_sysconfig.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/locations/base.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/metadata/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/metadata/base.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/metadata/pkg_resources.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/models/candidate.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/models/candidate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/models/link.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/models/link.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/models/wheel.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/models/wheel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/network/auth.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/network/auth.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/network/download.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/network/download.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/network/lazy_wheel.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/network/lazy_wheel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/network/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/network/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/operations/build/wheel_legacy.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/operations/build/wheel_legacy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/operations/install/legacy.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/operations/install/legacy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/req/req_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/req/req_file.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/req/req_uninstall.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/req/req_uninstall.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/resolution/resolvelib/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/resolution/resolvelib/base.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/resolution/resolvelib/provider.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/resolution/resolvelib/provider.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/utils/_log.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/utils/datetime.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/utils/datetime.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/utils/distutils_args.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/utils/distutils_args.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/utils/hashes.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/utils/hashes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/utils/packaging.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/utils/packaging.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/utils/parallel.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/utils/parallel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/utils/subprocess.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/utils/subprocess.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/utils/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/utils/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/utils/virtualenv.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/utils/virtualenv.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/vcs/bazaar.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/vcs/bazaar.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/vcs/mercurial.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_internal/vcs/mercurial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/chardet/cli/chardetect.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/chardet/cli/chardetect.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/chardet/compat.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/chardet/compat.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/chardet/langhebrewmodel.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/chardet/langhebrewmodel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/chardet/langrussianmodel.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/chardet/langthaimodel.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/chardet/langthaimodel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/chardet/metadata/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/chardet/metadata/languages.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/chardet/universaldetector.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/chardet/universaldetector.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/chardet/version.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/chardet/version.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/distlib/wheel.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/distlib/wheel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/idna/package_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/idna/package_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/idna/uts46data.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/idna/uts46data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/packaging/__about__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/packaging/__about__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/packaging/_manylinux.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/packaging/_musllinux.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/pep517/check.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/pep517/check.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/pep517/in_process/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/pep517/in_process/_in_process.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/pep517/wrappers.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/pep517/wrappers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/requests/help.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/requests/help.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/resolvelib/reporters.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/resolvelib/reporters.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/tenacity/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/tenacity/_asyncio.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/tenacity/_utils.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/tenacity/after.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/tenacity/before.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/tenacity/before_sleep.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/tenacity/nap.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/tenacity/retry.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/tenacity/stop.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/tenacity/tornadoweb.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/tenacity/wait.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/tomli/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/tomli/_parser.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/tomli/_re.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/urllib3/connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/urllib3/connection.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/urllib3/connectionpool.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/urllib3/connectionpool.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/urllib3/contrib/_securetransport/bindings.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/urllib3/contrib/_securetransport/bindings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/urllib3/contrib/_securetransport/low_level.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/urllib3/contrib/_securetransport/low_level.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/urllib3/contrib/ntlmpool.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/urllib3/contrib/ntlmpool.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/urllib3/fields.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/urllib3/fields.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/urllib3/response.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/urllib3/response.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/urllib3/util/retry.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/urllib3/util/retry.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/urllib3/util/wait.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/urllib3/util/wait.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/vendor.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip/_vendor/vendor.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip/py.typed" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pkg_resources/_vendor/packaging/__about__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pkg_resources/_vendor/packaging/__about__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pkg_resources/_vendor/packaging/markers.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pkg_resources/_vendor/packaging/markers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pkg_resources/_vendor/packaging/specifiers.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pkg_resources/_vendor/packaging/specifiers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pkg_resources/_vendor/packaging/version.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pkg_resources/_vendor/packaging/version.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/setuptools-50.3.2.dist-info/RECORD" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/setuptools/_distutils/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/setuptools/_distutils/cmd.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/setuptools/_distutils/command/check.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/setuptools/_distutils/command/install_data.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/setuptools/_distutils/command/install_egg_info.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/setuptools/_distutils/command/sdist.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/setuptools/_distutils/command/upload.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/setuptools/_distutils/dir_util.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/setuptools/_distutils/extension.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/setuptools/_distutils/msvccompiler.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/setuptools/_distutils/py38compat.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/setuptools/_distutils/sysconfig.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/setuptools/_distutils/versionpredicate.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/setuptools/_vendor/packaging/_compat.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/setuptools/_vendor/packaging/_compat.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/setuptools/command/bdist_rpm.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/setuptools/command/bdist_rpm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/setuptools/command/develop.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/setuptools/command/develop.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/setuptools/command/rotate.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/setuptools/command/rotate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/setuptools/command/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/setuptools/command/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/setuptools/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/setuptools/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/setuptools/installer.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/setuptools/installer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/setuptools/lib2to3_ex.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/setuptools/lib2to3_ex.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/setuptools/msvc.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/setuptools/msvc.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/setuptools/package_index.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/setuptools/package_index.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/setuptools/wheel.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/setuptools/wheel.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,26 +30,19 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/process_sqlite3.py" root0="SKIP_INSPECTION" />
-  </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
   <component name="ProjectId" id="1xqsjFpaRIyo7066uRHU584lu2n" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
-  }
-}</component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Postgres" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\asus1\PycharmProjects\fantom\Postgres" />
@@ -194,7 +52,7 @@
     </key>
   </component>
   <component name="RunManager" selected="Python.test">
-    <configuration name="client5" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+    <configuration name="client5" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="fantom" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -215,7 +73,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="not_GUI_version" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="client6" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="fantom" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -223,11 +81,53 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Postgres" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/not_GUI_version.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Postgres/client6.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="mappool_3" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="fantom" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Postgres" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Postgres/mappool_3.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="server_module2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="fantom" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Postgres" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Postgres/server_module2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -257,76 +157,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="fantom" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/archive/stock_market" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/archive/stock_market/test1.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="test10" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="fantom" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test10.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="test9" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="fantom" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test9.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.test" />
-        <item itemvalue="Python.test1" />
-        <item itemvalue="Python.test9" />
-        <item itemvalue="Python.test10" />
-        <item itemvalue="Python.not_GUI_version" />
+        <item itemvalue="Python.client5" />
+        <item itemvalue="Python.mappool_3" />
+        <item itemvalue="Python.server_module2" />
+        <item itemvalue="Python.client6" />
       </list>
     </recent_temporary>
   </component>

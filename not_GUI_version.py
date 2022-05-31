@@ -25,12 +25,12 @@ b = np.ones((5,n))
 
 b[0,2] = 10
 b[2] = [5,5,5,5,5]
-# b = np.ndarray
-# b = np.append(b, [[6,6,6,6,6]], axis=0)
+b = np.ndarray
+b = np.append(b, [[6,6,6,6,6]], axis=0)
 print(b)
 
 # if b[0][6] == 6:
 #     b = np.delete(b, 0, 0)
 # else:
     # print(b[0][4])
-# print(b[2][2])
+print(b[2][2])
