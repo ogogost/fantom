@@ -17,16 +17,23 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName("centralwidget")
 
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(40, 20, 500, 100))
+        self.label.setGeometry(QtCore.QRect(200, 30, 900, 100))
         self.label.setFrameShape(QtWidgets.QFrame.Panel)
         self.label.setFrameShadow(QtWidgets.QFrame.Plain)
         self.label.setStyleSheet('background-color: white')
         # self.label.setPixmap(QtGui.QPixmap(source))
         self.label.setObjectName("label")
 
+
+        self.status_monitor = QtWidgets.QLabel(self.centralwidget)
+        self.status_monitor.setGeometry(200, 800, 500, 200)
+        self.status_monitor.setFrameShape(QtWidgets.QFrame.Panel)
+        self.status_monitor.setFrameShadow(QtWidgets.QFrame.Plain)
+
+
         # button 1
         self.pushButton_1 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_1.setGeometry(QtCore.QRect(1800, 1000, 100, 50))
+        self.pushButton_1.setGeometry(QtCore.QRect(1500, 800, 200, 100))
         self.pushButton_1.setText("Exit")
 
         # button 2
@@ -41,12 +48,12 @@ class Ui_MainWindow(object):
 
         # button 4
         self.pushButton_4 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_4.setGeometry(QtCore.QRect(40, 200, 100, 30))
+        self.pushButton_4.setGeometry(QtCore.QRect(1040, 200, 100, 30))
         self.pushButton_4.setText("Запись в таблицу")
 
         # button 5
         self.pushButton_5 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_5.setGeometry(QtCore.QRect(40, 240, 100, 30))
+        self.pushButton_5.setGeometry(QtCore.QRect(1040, 240, 100, 30))
         self.pushButton_5.setText("Вывод таблицы")
 
         # button 6
@@ -66,10 +73,10 @@ class Ui_MainWindow(object):
 
         # qline
         self.lineEdit_1 = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_1.setGeometry(QtCore.QRect(190, 120, 200, 40))
+        self.lineEdit_1.setGeometry(QtCore.QRect(1300, 200, 200, 40))
         # self.lineEdit_1.setText("Variable1")
+        # self.lineEdit_1.setInputMask('HHH:HHH')
         self.lineEdit_1.setMaxLength(100)
-        self.lineEdit_1.setInputMask('HHH:HHH')
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
@@ -204,6 +211,10 @@ class mywindow(QtWidgets.QMainWindow):
             print(e)
             self.statusBar().showMessage(str(e))
 
+
+    def status_monitor(self):
+        while True:
+            None
 
 app = QtWidgets.QApplication([])
 application = mywindow()
