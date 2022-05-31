@@ -213,8 +213,20 @@ class mywindow(QtWidgets.QMainWindow):
 
 
     def status_monitor(self):
-        while True:
-            None
+        con = sl.connect(data_base_path)
+        cursor = con.cursor()
+        try:
+            cursor.execute("SELECT * FROM TABLE_OF_ORDERS")
+            product = cursor.fetchall()
+            self.ui.status_monitor.setText(str(product))
+            # self.statusBar().showMessage('DATA IS SHOWED')
+        except Exception as e:
+            print(e)
+            # self.statusBar().showMessage(str(e))
+        con.close()
+
+
+
 
 app = QtWidgets.QApplication([])
 application = mywindow()
