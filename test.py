@@ -2,6 +2,7 @@ import sqlite3 as sl
 from PyQt5 import QtCore, QtWidgets
 import sys
 import os
+from datetime import datetime, date, time
 
 # Variables
 data_base_path = 'test.db'
@@ -17,6 +18,7 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName("centralwidget")
 
         self.label = QtWidgets.QLabel(self.centralwidget)
+        # self.label = QtWidgets.QTableWidget(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(200, 30, 900, 100))
         self.label.setFrameShape(QtWidgets.QFrame.Panel)
         self.label.setFrameShadow(QtWidgets.QFrame.Plain)
@@ -71,12 +73,75 @@ class Ui_MainWindow(object):
         self.pushButton_8.setGeometry(QtCore.QRect(40, 360, 100, 30))
         self.pushButton_8.setText("Добавка строки")
 
-        # qline
+        # qline1
         self.lineEdit_1 = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_1.setGeometry(QtCore.QRect(1300, 200, 200, 40))
         # self.lineEdit_1.setText("Variable1")
         # self.lineEdit_1.setInputMask('HHH:HHH')
         self.lineEdit_1.setMaxLength(100)
+        self.label_of_lineEdit_1 = QtWidgets.QLabel(self.centralwidget)
+        self.label_of_lineEdit_1.setText("Name_of_client")
+        self.label_of_lineEdit_1.setGeometry(QtCore.QRect(1200,210,80,20))
+        self.label_of_lineEdit_1.setStyleSheet('border-style: solid; border-width: 1px; border-color: black;')
+
+        # qline2
+        self.lineEdit_2 = QtWidgets.QLineEdit(self.centralwidget)
+        self.lineEdit_2.setGeometry(QtCore.QRect(1300, 300, 200, 40))
+        # self.lineEdit_1.setText("Variable1")
+        # self.lineEdit_1.setInputMask('HHH:HHH')
+        self.lineEdit_2.setMaxLength(100)
+        self.label_of_lineEdit_2 = QtWidgets.QLabel(self.centralwidget)
+        self.label_of_lineEdit_2.setText("Order_type")
+        self.label_of_lineEdit_2.setGeometry(QtCore.QRect(1200, 310, 80, 20))
+        self.label_of_lineEdit_2.setStyleSheet('border-style: solid; border-width: 1px; border-color: black;')
+
+        # qline3
+        self.lineEdit_3 = QtWidgets.QLineEdit(self.centralwidget)
+        self.lineEdit_3.setGeometry(QtCore.QRect(1300, 400, 200, 40))
+        # self.lineEdit_1.setText("Variable1")
+        # self.lineEdit_1.setInputMask('HHH:HHH')
+        self.lineEdit_3.setMaxLength(100)
+        self.label_of_lineEdit_3 = QtWidgets.QLabel(self.centralwidget)
+        self.label_of_lineEdit_3.setText("Buy_sell")
+        self.label_of_lineEdit_3.setGeometry(QtCore.QRect(1200, 410, 80, 20))
+        self.label_of_lineEdit_3.setStyleSheet('border-style: solid; border-width: 1px; border-color: black;')
+
+        # qline4
+        self.lineEdit_4 = QtWidgets.QLineEdit(self.centralwidget)
+        self.lineEdit_4.setGeometry(QtCore.QRect(1300, 500, 200, 40))
+        # self.lineEdit_1.setText("Variable1")
+        # self.lineEdit_1.setInputMask('HHH:HHH')
+        self.lineEdit_4.setMaxLength(100)
+        self.label_of_lineEdit_4 = QtWidgets.QLabel(self.centralwidget)
+        self.label_of_lineEdit_4.setText("Price")
+        self.label_of_lineEdit_4.setGeometry(QtCore.QRect(1200, 510, 80, 20))
+        self.label_of_lineEdit_4.setStyleSheet('border-style: solid; border-width: 1px; border-color: black;')
+
+
+        # qline5
+        self.lineEdit_5 = QtWidgets.QLineEdit(self.centralwidget)
+        self.lineEdit_5.setGeometry(QtCore.QRect(1300, 600, 200, 40))
+        # self.lineEdit_1.setText("Variable1")
+        # self.lineEdit_1.setInputMask('HHH:HHH')
+        self.lineEdit_5.setMaxLength(100)
+        self.label_of_lineEdit_5 = QtWidgets.QLabel(self.centralwidget)
+        self.label_of_lineEdit_5.setText("Amount")
+        self.label_of_lineEdit_5.setGeometry(QtCore.QRect(1200, 610, 80, 20))
+        self.label_of_lineEdit_5.setStyleSheet('border-style: solid; border-width: 1px; border-color: black;')
+
+
+        # qline6
+        self.lineEdit_6 = QtWidgets.QLineEdit(self.centralwidget)
+        self.lineEdit_6.setGeometry(QtCore.QRect(1300, 700, 200, 40))
+        # self.lineEdit_1.setText("Variable1")
+        # self.lineEdit_1.setInputMask('HHH:HHH')
+        self.lineEdit_6.setMaxLength(100)
+        self.label_of_lineEdit_6 = QtWidgets.QLabel(self.centralwidget)
+        self.label_of_lineEdit_6.setText("Ticker")
+        self.label_of_lineEdit_6.setGeometry(QtCore.QRect(1200, 710, 80, 20))
+        self.label_of_lineEdit_6.setStyleSheet('border-style: solid; border-width: 1px; border-color: black;')
+
+
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
@@ -117,7 +182,6 @@ class mywindow(QtWidgets.QMainWindow):
         self.statusBar().showMessage(str(self.ui.lineEdit_1.text()))
 
 
-
     def initUi(self):
         self.statusBar().showMessage('Ready')
 
@@ -134,13 +198,13 @@ class mywindow(QtWidgets.QMainWindow):
         # cursor = con.cursor()
         try:
             con.execute("""CREATE TABLE TABLE_OF_ORDERS (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, 
-                id_client TEXT,
+                name_client TEXT,
                 order_type TEXT,
                 buy_sell TEXT,
                 price INTEGER,
                 amount INTEGER,
                 ticker TEXT,
-                time INTEGER)""")
+                datetime timestamp)""")
             self.statusBar().showMessage('Create executed succesful')
         except Exception as e:
             print(e)
@@ -151,10 +215,10 @@ class mywindow(QtWidgets.QMainWindow):
     def create_data_function(self):
         con = sl.connect(data_base_path)
         try:
-            sql = 'INSERT INTO TABLE_OF_ORDERS (id, id_client, order_type, buy_sell, price, amount, ticker, time) values(?, ?, ?, ?, ?, ?, ?, ?)'
-            data = [(1, 'Alice', 'market', 'buy', 900, 10, 'YNDX', 'time'),
-                    (2, 'Bob', 'market', 'sell', 1100, 1, 'YNDX', 'time'),
-                    (3, 'Mikle', 'market', 'buy', 800, 5, 'YNDX', 'time')]
+            sql = 'INSERT INTO TABLE_OF_ORDERS (id, name_client, order_type, buy_sell, price, amount, ticker, datetime) values(?, ?, ?, ?, ?, ?, ?, ?)'
+            data = [(1, 'Alice', 'market', 'buy', 900, 10, 'YNDX', datetime.today()),
+                    (2, 'Bob', 'market', 'sell', 1100, 1, 'YNDX', datetime.today()),
+                    (3, 'Mikle', 'market', 'buy', 800, 5, 'YNDX', datetime.today())]
             with con:
                 con.executemany(sql, data)
             self.statusBar().showMessage('INSERT executed succesful')
@@ -163,12 +227,12 @@ class mywindow(QtWidgets.QMainWindow):
             self.statusBar().showMessage(str(e))
         con.close()
 
-    def add_data_to_table(self, number_of_order, id_client, order_type, buy_sell, price, amount, ticker, time):
+    def add_data_to_table(self, number_of_order, name_client, order_type, buy_sell, price, amount, ticker, datetime):
 
         con = sl.connect(data_base_path)
         try:
-            sql = 'INSERT INTO TABLE_OF_ORDERS (id, id_client, order_type, buy_sell, price, amount, ticker, time) values(?, ?, ?, ?, ?, ?, ?, ?)'
-            data = [(number_of_order, id_client, order_type, buy_sell, price, amount, ticker, time)]
+            sql = 'INSERT INTO TABLE_OF_ORDERS (id, name_client, order_type, buy_sell, price, amount, ticker, datetime) values(?, ?, ?, ?, ?, ?, ?, ?)'
+            data = [(number_of_order, name_client, order_type, buy_sell, price, amount, ticker, datetime.today())]
             con.executemany(sql, data)
             self.statusBar().showMessage('INSERT of DATA succesful' + data)
 
