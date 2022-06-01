@@ -19,7 +19,7 @@ class Ui_MainWindow(object):
 
         self.label = QtWidgets.QLabel(self.centralwidget)
         # self.label = QtWidgets.QTableWidget(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(200, 30, 900, 100))
+        self.label.setGeometry(QtCore.QRect(300, 30, 400, 400))
         self.label.setFrameShape(QtWidgets.QFrame.Panel)
         self.label.setFrameShadow(QtWidgets.QFrame.Plain)
         self.label.setStyleSheet('background-color: white')
@@ -70,13 +70,13 @@ class Ui_MainWindow(object):
 
         # button 8
         self.pushButton_8 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_8.setGeometry(QtCore.QRect(40, 360, 100, 30))
+        self.pushButton_8.setGeometry(QtCore.QRect(1040, 360, 100, 30))
         self.pushButton_8.setText("Добавка строки")
 
         # qline1
         self.lineEdit_1 = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_1.setGeometry(QtCore.QRect(1300, 200, 200, 40))
-        # self.lineEdit_1.setText("Variable1")
+        self.lineEdit_1.setText("Jhon")
         # self.lineEdit_1.setInputMask('HHH:HHH')
         self.lineEdit_1.setMaxLength(100)
         self.label_of_lineEdit_1 = QtWidgets.QLabel(self.centralwidget)
@@ -87,7 +87,7 @@ class Ui_MainWindow(object):
         # qline2
         self.lineEdit_2 = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_2.setGeometry(QtCore.QRect(1300, 300, 200, 40))
-        # self.lineEdit_1.setText("Variable1")
+        self.lineEdit_2.setText("Market")
         # self.lineEdit_1.setInputMask('HHH:HHH')
         self.lineEdit_2.setMaxLength(100)
         self.label_of_lineEdit_2 = QtWidgets.QLabel(self.centralwidget)
@@ -98,7 +98,7 @@ class Ui_MainWindow(object):
         # qline3
         self.lineEdit_3 = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_3.setGeometry(QtCore.QRect(1300, 400, 200, 40))
-        # self.lineEdit_1.setText("Variable1")
+        self.lineEdit_3.setText("Buy")
         # self.lineEdit_1.setInputMask('HHH:HHH')
         self.lineEdit_3.setMaxLength(100)
         self.label_of_lineEdit_3 = QtWidgets.QLabel(self.centralwidget)
@@ -109,7 +109,7 @@ class Ui_MainWindow(object):
         # qline4
         self.lineEdit_4 = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_4.setGeometry(QtCore.QRect(1300, 500, 200, 40))
-        # self.lineEdit_1.setText("Variable1")
+        self.lineEdit_4.setText("1000")
         # self.lineEdit_1.setInputMask('HHH:HHH')
         self.lineEdit_4.setMaxLength(100)
         self.label_of_lineEdit_4 = QtWidgets.QLabel(self.centralwidget)
@@ -121,7 +121,7 @@ class Ui_MainWindow(object):
         # qline5
         self.lineEdit_5 = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_5.setGeometry(QtCore.QRect(1300, 600, 200, 40))
-        # self.lineEdit_1.setText("Variable1")
+        self.lineEdit_5.setText("6")
         # self.lineEdit_1.setInputMask('HHH:HHH')
         self.lineEdit_5.setMaxLength(100)
         self.label_of_lineEdit_5 = QtWidgets.QLabel(self.centralwidget)
@@ -133,7 +133,7 @@ class Ui_MainWindow(object):
         # qline6
         self.lineEdit_6 = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_6.setGeometry(QtCore.QRect(1300, 700, 200, 40))
-        # self.lineEdit_1.setText("Variable1")
+        self.lineEdit_6.setText("YANDEX")
         # self.lineEdit_1.setInputMask('HHH:HHH')
         self.lineEdit_6.setMaxLength(100)
         self.label_of_lineEdit_6 = QtWidgets.QLabel(self.centralwidget)
@@ -172,7 +172,7 @@ class mywindow(QtWidgets.QMainWindow):
         self.ui.pushButton_6.clicked.connect(self.erase_db_table_function)
         self.ui.pushButton_7.clicked.connect(self.erase_db_function)
         self.ui.lineEdit_1.editingFinished.connect(self.lineEdit_1_event)
-        # self.ui.pushButton_8.clicked.connect(self.add_data_to_table)
+        self.ui.pushButton_8.clicked.connect(self.add_data_to_table)
         # self.ui.pushButton_8.clicked.connect(self.lineEdit_1_event)
         # self.ui.pushButton_8.clicked.connect(self.add_data_to_table(4, 'M', 'market', 'buy', 800, 5, 'YNDX', 'time'))
         self.initUi()
@@ -215,10 +215,14 @@ class mywindow(QtWidgets.QMainWindow):
     def create_data_function(self):
         con = sl.connect(data_base_path)
         try:
-            sql = 'INSERT INTO TABLE_OF_ORDERS (id, name_client, order_type, buy_sell, price, amount, ticker, datetime) values(?, ?, ?, ?, ?, ?, ?, ?)'
-            data = [(1, 'Alice', 'market', 'buy', 900, 10, 'YNDX', datetime.today()),
-                    (2, 'Bob', 'market', 'sell', 1100, 1, 'YNDX', datetime.today()),
-                    (3, 'Mikle', 'market', 'buy', 800, 5, 'YNDX', datetime.today())]
+            sql = 'INSERT INTO TABLE_OF_ORDERS (id, name_client, order_type, buy_sell, price, amount, ticker, datetime) values(null, ?, ?, ?, ?, ?, ?, ?)'
+            data = [('Alice', 'market', 'buy', 900, 10, 'YNDX', datetime.today()),
+                    ('Bob', 'market', 'sell', 1100, 1, 'YNDX', datetime.today()),
+                    ('Mikle', 'market', 'buy', 800, 5, 'YNDX', datetime.today())]
+            # sql = 'INSERT INTO TABLE_OF_ORDERS (id, name_client, order_type, buy_sell, price, amount, ticker, datetime) values(?, ?, ?, ?, ?, ?, ?, ?)'
+            # data = [(1, 'Alice', 'market', 'buy', 900, 10, 'YNDX', datetime.today()),
+            #         (2, 'Bob', 'market', 'sell', 1100, 1, 'YNDX', datetime.today()),
+            #         (3, 'Mikle', 'market', 'buy', 800, 5, 'YNDX', datetime.today())]
             with con:
                 con.executemany(sql, data)
             self.statusBar().showMessage('INSERT executed succesful')
@@ -227,14 +231,30 @@ class mywindow(QtWidgets.QMainWindow):
             self.statusBar().showMessage(str(e))
         con.close()
 
-    def add_data_to_table(self, number_of_order, name_client, order_type, buy_sell, price, amount, ticker, datetime):
+    def add_data_to_table(self):
+        name_client = self.ui.lineEdit_1.text()
+        order_type = self.ui.lineEdit_2.text()
+        buy_sell =self.ui.lineEdit_3.text()
+        price = self.ui.lineEdit_4.text()
+        amount = self.ui.lineEdit_5.text()
+        ticker = self.ui.lineEdit_6.text()
 
         con = sl.connect(data_base_path)
+        cursor = con.cursor()
+
         try:
-            sql = 'INSERT INTO TABLE_OF_ORDERS (id, name_client, order_type, buy_sell, price, amount, ticker, datetime) values(?, ?, ?, ?, ?, ?, ?, ?)'
-            data = [(number_of_order, name_client, order_type, buy_sell, price, amount, ticker, datetime.today())]
+            sql = 'INSERT INTO TABLE_OF_ORDERS (id, name_client, order_type, buy_sell, price, amount, ticker, datetime) values(null, ?, ?, ?, ?, ?, ?, ?)'
+            data = [(name_client, order_type, buy_sell, price, amount, ticker, datetime.today())]
             con.executemany(sql, data)
-            self.statusBar().showMessage('INSERT of DATA succesful' + data)
+            cursor.execute("SELECT * FROM TABLE_OF_ORDERS")
+            product = cursor.fetchall()  # вытаскиваем содержимое бд в виде списка
+            a = '\n'.join(map(str, product))  # разбиваем список переносом строки
+            self.ui.label.setText(a)
+            con.commit()
+            con.close()
+            # show_data_function(self)
+
+            self.statusBar().showMessage('INSERT of DATA succesful' + str(data))
 
         except Exception as e:
             print(e)
@@ -247,8 +267,9 @@ class mywindow(QtWidgets.QMainWindow):
         cursor = con.cursor()
         try:
             cursor.execute("SELECT * FROM TABLE_OF_ORDERS")
-            product = cursor.fetchall()
-            self.ui.label.setText(str(product))
+            product = cursor.fetchall() # вытаскиваем содержимое бд в виде списка
+            a = '\n'.join(map(str, product)) # разбиваем список переносом строки
+            self.ui.label.setText(a)
             self.statusBar().showMessage('DATA IS SHOWED')
         except Exception as e:
             print(e)
