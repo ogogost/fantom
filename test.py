@@ -88,18 +88,41 @@ class Ui_MainWindow(object):
         self.lineEdit_2 = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_2.setGeometry(QtCore.QRect(1300, 300, 200, 40))
         self.lineEdit_2.setText("Market")
-        # self.lineEdit_1.setInputMask('HHH:HHH')
         self.lineEdit_2.setMaxLength(100)
         self.label_of_lineEdit_2 = QtWidgets.QLabel(self.centralwidget)
         self.label_of_lineEdit_2.setText("Order_type")
         self.label_of_lineEdit_2.setGeometry(QtCore.QRect(1200, 310, 80, 20))
         self.label_of_lineEdit_2.setStyleSheet('border-style: solid; border-width: 1px; border-color: black;')
 
+        # radiobuttons for 'Market/Limit'
+        self.label_for_radiobutton_ML_1 = QtWidgets.QLabel(self.centralwidget)
+        self.label_for_radiobutton_ML_1.setGeometry(1300, 350, 100, 20)
+        self.label_for_radiobutton_ML_1.setText('Market')
+        self.radiobutton_ML_1 = QtWidgets.QRadioButton(self.centralwidget)
+        self.radiobutton_ML_1.setGeometry(1350, 350, 20, 20)
+        self.label_for_radiobutton_ML_2 = QtWidgets.QLabel(self.centralwidget)
+        self.label_for_radiobutton_ML_2.setGeometry(1410, 350, 100, 20)
+        self.label_for_radiobutton_ML_2.setText('Limit')
+        self.radiobutton_ML_2 = QtWidgets.QRadioButton(self.centralwidget)
+        self.radiobutton_ML_2.setGeometry(1450, 350, 20, 20)
+
+        # radiobuttons for 'Buy/Sell'
+        self.label_for_radiobutton_BS_1 = QtWidgets.QLabel(self.centralwidget)
+        self.label_for_radiobutton_BS_1.setGeometry(1300, 450, 100, 20)
+        self.label_for_radiobutton_BS_1.setText('BUY')
+        self.radiobutton_BS_1 = QtWidgets.QRadioButton(self.centralwidget)
+        self.radiobutton_BS_1.setGeometry(1350, 450, 20, 20)
+        self.label_for_radiobutton_BS_2 = QtWidgets.QLabel(self.centralwidget)
+        self.label_for_radiobutton_BS_2.setGeometry(1410, 450, 100, 20)
+        self.label_for_radiobutton_BS_2.setText('SELL')
+        self.radiobutton_BS_2 = QtWidgets.QRadioButton(self.centralwidget)
+        self.radiobutton_BS_2.setGeometry(1450, 450, 20, 20)
+
+
         # qline3
         self.lineEdit_3 = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_3.setGeometry(QtCore.QRect(1300, 400, 200, 40))
-        self.lineEdit_3.setText("Buy")
-        # self.lineEdit_1.setInputMask('HHH:HHH')
+        self.lineEdit_3.setText("BUY")
         self.lineEdit_3.setMaxLength(100)
         self.label_of_lineEdit_3 = QtWidgets.QLabel(self.centralwidget)
         self.label_of_lineEdit_3.setText("Buy_sell")
@@ -110,7 +133,6 @@ class Ui_MainWindow(object):
         self.lineEdit_4 = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_4.setGeometry(QtCore.QRect(1300, 500, 200, 40))
         self.lineEdit_4.setText("1000")
-        # self.lineEdit_1.setInputMask('HHH:HHH')
         self.lineEdit_4.setMaxLength(100)
         self.label_of_lineEdit_4 = QtWidgets.QLabel(self.centralwidget)
         self.label_of_lineEdit_4.setText("Price")
@@ -122,7 +144,6 @@ class Ui_MainWindow(object):
         self.lineEdit_5 = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_5.setGeometry(QtCore.QRect(1300, 600, 200, 40))
         self.lineEdit_5.setText("6")
-        # self.lineEdit_1.setInputMask('HHH:HHH')
         self.lineEdit_5.setMaxLength(100)
         self.label_of_lineEdit_5 = QtWidgets.QLabel(self.centralwidget)
         self.label_of_lineEdit_5.setText("Amount")
@@ -134,7 +155,6 @@ class Ui_MainWindow(object):
         self.lineEdit_6 = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_6.setGeometry(QtCore.QRect(1300, 700, 200, 40))
         self.lineEdit_6.setText("YANDEX")
-        # self.lineEdit_1.setInputMask('HHH:HHH')
         self.lineEdit_6.setMaxLength(100)
         self.label_of_lineEdit_6 = QtWidgets.QLabel(self.centralwidget)
         self.label_of_lineEdit_6.setText("Ticker")
@@ -175,7 +195,24 @@ class mywindow(QtWidgets.QMainWindow):
         self.ui.pushButton_8.clicked.connect(self.add_data_to_table)
         # self.ui.pushButton_8.clicked.connect(self.lineEdit_1_event)
         # self.ui.pushButton_8.clicked.connect(self.add_data_to_table(4, 'M', 'market', 'buy', 800, 5, 'YNDX', 'time'))
+
+        self.ui.radiobutton_ML_1.toggled.connect(self.rb_ml_1)
+        self.ui.radiobutton_ML_2.toggled.connect(self.rb_ml_2)
+
+        self.ui.radiobutton_BS_1.toggled.connect(self.rb_bs_1)
+        self.ui.radiobutton_BS_2.toggled.connect(self.rb_bs_2)
+
         self.initUi()
+
+    def rb_ml_1(self):
+        self.ui.lineEdit_2.setText('Market')
+    def rb_ml_2(self):
+        self.ui.lineEdit_2.setText('Limit')
+
+    def rb_bs_1(self):
+        self.ui.lineEdit_3.setText('BUY')
+    def rb_bs_2(self):
+        self.ui.lineEdit_3.setText('SELL')
 
 
     def lineEdit_1_event(self):
