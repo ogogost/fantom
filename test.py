@@ -211,6 +211,8 @@ class mywindow(QtWidgets.QMainWindow):
 
         self.initUi()
 
+
+
     def sort_too(self):
         con = sl.connect(data_base_path)
         cursor = con.cursor()
@@ -219,7 +221,7 @@ class mywindow(QtWidgets.QMainWindow):
             product = cursor.fetchall()  # вытаскиваем содержимое бд в виде списка
             buy_list = [] # создаём пустые списки
             sell_list = [] # создаём пустые списки
-            for i in product: # данный цикл добавляет строки из бд по наличию слова BUY
+            for i in product: # цикл добавляет строки из бд по наличию слова BUY в списке
                 if i[3] == 'BUY':
                     buy_list.append(i)
                 else:
@@ -230,6 +232,10 @@ class mywindow(QtWidgets.QMainWindow):
             sell_list_sorted = sorted(sell_list, key=lambda sell_list:sell_list[4])
 
             # нужна сортировка при одинаковой цене, по времени заявки!
+            def fun(v):  # вспомогательная функция для сортировки заявок
+                return (v[4], v[7])
+            buy_list_sorted.sort(key=fun)
+            sell_list_sorted.sort(key=fun)
 
             a = '\n'.join(map(str, buy_list_sorted))
             b = '\n'.join(map(str, sell_list_sorted))
