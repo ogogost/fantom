@@ -19,7 +19,7 @@ class Ui_MainWindow(object):
 
         self.label = QtWidgets.QLabel(self.centralwidget)
         # self.label = QtWidgets.QTableWidget(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(300, 30, 400, 400))
+        self.label.setGeometry(QtCore.QRect(250, 40, 400, 400))
         self.label.setFrameShape(QtWidgets.QFrame.Panel)
         self.label.setFrameShadow(QtWidgets.QFrame.Plain)
         self.label.setStyleSheet('background-color: white')
@@ -28,7 +28,7 @@ class Ui_MainWindow(object):
 
 
         self.status_monitor = QtWidgets.QLabel(self.centralwidget)
-        self.status_monitor.setGeometry(200, 800, 500, 200)
+        self.status_monitor.setGeometry(200, 600, 500, 400)
         self.status_monitor.setFrameShape(QtWidgets.QFrame.Panel)
         self.status_monitor.setFrameShadow(QtWidgets.QFrame.Plain)
 
@@ -40,28 +40,28 @@ class Ui_MainWindow(object):
 
         # button 2
         self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_2.setGeometry(QtCore.QRect(40, 120, 200, 30))
+        self.pushButton_2.setGeometry(QtCore.QRect(40, 40, 200, 30))
         self.pushButton_2.setText("Создание БД")
 
         # button 3
         self.pushButton_3 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_3.setGeometry(QtCore.QRect(40, 160, 200, 30))
-        self.pushButton_3.setText("Создание таблицы")
+        self.pushButton_3.setGeometry(QtCore.QRect(40, 80, 200, 30))
+        self.pushButton_3.setText("Создание таблицы ордеров")
 
         # button 4
         self.pushButton_4 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_4.setGeometry(QtCore.QRect(940, 200, 200, 30))
-        self.pushButton_4.setText("Запись в таблицу")
+        self.pushButton_4.setGeometry(QtCore.QRect(700, 40, 200, 30))
+        self.pushButton_4.setText("Запись в таблицу заявок пресета")
 
         # button 5
         self.pushButton_5 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_5.setGeometry(QtCore.QRect(940, 240, 200, 30))
-        self.pushButton_5.setText("Вывод таблицы")
+        self.pushButton_5.setGeometry(QtCore.QRect(700, 80, 200, 30))
+        self.pushButton_5.setText("Вывод таблицы ордеров")
 
         # button 6
         self.pushButton_6 = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_6.setGeometry(QtCore.QRect(40, 280, 200, 30))
-        self.pushButton_6.setText("Удаление таблицы")
+        self.pushButton_6.setText("Удаление таблицы ордеров")
 
         # button 7
         self.pushButton_7 = QtWidgets.QPushButton(self.centralwidget)
@@ -70,7 +70,7 @@ class Ui_MainWindow(object):
 
         # button 8
         self.pushButton_8 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_8.setGeometry(QtCore.QRect(940, 360, 200, 30))
+        self.pushButton_8.setGeometry(QtCore.QRect(700, 430, 200, 30))
         self.pushButton_8.setText("Добавка строки")
 
         # button 9
@@ -80,92 +80,122 @@ class Ui_MainWindow(object):
 
         # qline1
         self.lineEdit_1 = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_1.setGeometry(QtCore.QRect(1300, 200, 200, 30))
+        self.lineEdit_1.setGeometry(QtCore.QRect(750, 130, 150, 30))
         self.lineEdit_1.setText("John")
         # self.lineEdit_1.setInputMask('HHH:HHH')
         self.lineEdit_1.setMaxLength(100)
         self.label_of_lineEdit_1 = QtWidgets.QLabel(self.centralwidget)
         self.label_of_lineEdit_1.setText("Name_of_client")
-        self.label_of_lineEdit_1.setGeometry(QtCore.QRect(1200,210,80,20))
+        self.label_of_lineEdit_1.setGeometry(QtCore.QRect(660,130,80,20))
         self.label_of_lineEdit_1.setStyleSheet('border-style: solid; border-width: 1px; border-color: black;')
 
         # qline2
         self.lineEdit_2 = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_2.setGeometry(QtCore.QRect(1300, 300, 200, 40))
+        self.lineEdit_2.setGeometry(QtCore.QRect(750, 170, 150, 30))
         self.lineEdit_2.setText("Market")
         self.lineEdit_2.setMaxLength(100)
         self.label_of_lineEdit_2 = QtWidgets.QLabel(self.centralwidget)
         self.label_of_lineEdit_2.setText("Order_type")
-        self.label_of_lineEdit_2.setGeometry(QtCore.QRect(1200, 310, 80, 20))
+        self.label_of_lineEdit_2.setGeometry(QtCore.QRect(660, 170, 80, 20))
         self.label_of_lineEdit_2.setStyleSheet('border-style: solid; border-width: 1px; border-color: black;')
 
         # radiobuttons for 'Market/Limit'
         self.label_for_radiobutton_ML_1 = QtWidgets.QLabel(self.centralwidget)
-        self.label_for_radiobutton_ML_1.setGeometry(1300, 350, 100, 20)
+        self.label_for_radiobutton_ML_1.setGeometry(760, 200, 100, 20)
         self.label_for_radiobutton_ML_1.setText('Market')
         self.radiobutton_ML_1 = QtWidgets.QRadioButton(self.centralwidget)
-        self.radiobutton_ML_1.setGeometry(1350, 350, 20, 20)
+        self.radiobutton_ML_1.setGeometry(800, 200, 20, 20)
         self.label_for_radiobutton_ML_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_for_radiobutton_ML_2.setGeometry(1410, 350, 100, 20)
+        self.label_for_radiobutton_ML_2.setGeometry(840, 200, 100, 20)
         self.label_for_radiobutton_ML_2.setText('Limit')
         self.radiobutton_ML_2 = QtWidgets.QRadioButton(self.centralwidget)
-        self.radiobutton_ML_2.setGeometry(1450, 350, 20, 20)
-
-        # radiobuttons for 'Buy/Sell'
-        self.label_for_radiobutton_BS_1 = QtWidgets.QLabel(self.centralwidget)
-        self.label_for_radiobutton_BS_1.setGeometry(1300, 450, 100, 20)
-        self.label_for_radiobutton_BS_1.setText('BUY')
-        self.radiobutton_BS_1 = QtWidgets.QRadioButton(self.centralwidget)
-        self.radiobutton_BS_1.setGeometry(1350, 450, 20, 20)
-        self.label_for_radiobutton_BS_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_for_radiobutton_BS_2.setGeometry(1410, 450, 100, 20)
-        self.label_for_radiobutton_BS_2.setText('SELL')
-        self.radiobutton_BS_2 = QtWidgets.QRadioButton(self.centralwidget)
-        self.radiobutton_BS_2.setGeometry(1450, 450, 20, 20)
-
+        self.radiobutton_ML_2.setGeometry(870, 200, 20, 20)
 
         # qline3
         self.lineEdit_3 = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_3.setGeometry(QtCore.QRect(1300, 400, 200, 40))
+        self.lineEdit_3.setGeometry(QtCore.QRect(750, 230, 150, 30))
         self.lineEdit_3.setText("BUY")
         self.lineEdit_3.setMaxLength(100)
         self.label_of_lineEdit_3 = QtWidgets.QLabel(self.centralwidget)
-        self.label_of_lineEdit_3.setText("Buy_sell")
-        self.label_of_lineEdit_3.setGeometry(QtCore.QRect(1200, 410, 80, 20))
+        self.label_of_lineEdit_3.setText("BUY_SELL")
+        self.label_of_lineEdit_3.setGeometry(QtCore.QRect(660, 230, 80, 20))
         self.label_of_lineEdit_3.setStyleSheet('border-style: solid; border-width: 1px; border-color: black;')
+
+        # radiobuttons for 'Buy/Sell'
+        self.label_for_radiobutton_BS_1 = QtWidgets.QLabel(self.centralwidget)
+        self.label_for_radiobutton_BS_1.setGeometry(770, 260, 100, 20)
+        self.label_for_radiobutton_BS_1.setText('BUY')
+        self.radiobutton_BS_1 = QtWidgets.QRadioButton(self.centralwidget)
+        self.radiobutton_BS_1.setGeometry(800, 260, 20, 20)
+        self.label_for_radiobutton_BS_2 = QtWidgets.QLabel(self.centralwidget)
+        self.label_for_radiobutton_BS_2.setGeometry(840, 260, 100, 20)
+        self.label_for_radiobutton_BS_2.setText('SELL')
+        self.radiobutton_BS_2 = QtWidgets.QRadioButton(self.centralwidget)
+        self.radiobutton_BS_2.setGeometry(870, 260, 20, 20)
 
         # qline4
         self.lineEdit_4 = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_4.setGeometry(QtCore.QRect(1300, 500, 200, 40))
+        self.lineEdit_4.setGeometry(QtCore.QRect(750, 280, 150, 30))
         self.lineEdit_4.setText("1000")
         self.lineEdit_4.setMaxLength(100)
         self.label_of_lineEdit_4 = QtWidgets.QLabel(self.centralwidget)
         self.label_of_lineEdit_4.setText("Price")
-        self.label_of_lineEdit_4.setGeometry(QtCore.QRect(1200, 510, 80, 20))
+        self.label_of_lineEdit_4.setGeometry(QtCore.QRect(660, 280, 80, 20))
         self.label_of_lineEdit_4.setStyleSheet('border-style: solid; border-width: 1px; border-color: black;')
 
 
         # qline5
         self.lineEdit_5 = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_5.setGeometry(QtCore.QRect(1300, 600, 200, 40))
+        self.lineEdit_5.setGeometry(QtCore.QRect(750, 320, 150, 30))
         self.lineEdit_5.setText("6")
         self.lineEdit_5.setMaxLength(100)
         self.label_of_lineEdit_5 = QtWidgets.QLabel(self.centralwidget)
         self.label_of_lineEdit_5.setText("Amount")
-        self.label_of_lineEdit_5.setGeometry(QtCore.QRect(1200, 610, 80, 20))
+        self.label_of_lineEdit_5.setGeometry(QtCore.QRect(660, 320, 80, 20))
         self.label_of_lineEdit_5.setStyleSheet('border-style: solid; border-width: 1px; border-color: black;')
 
 
         # qline6
         self.lineEdit_6 = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_6.setGeometry(QtCore.QRect(1300, 700, 200, 40))
+        self.lineEdit_6.setGeometry(QtCore.QRect(750, 360, 150, 40))
         self.lineEdit_6.setText("YANDEX")
         self.lineEdit_6.setMaxLength(100)
         self.label_of_lineEdit_6 = QtWidgets.QLabel(self.centralwidget)
         self.label_of_lineEdit_6.setText("Ticker")
-        self.label_of_lineEdit_6.setGeometry(QtCore.QRect(1200, 710, 80, 20))
+        self.label_of_lineEdit_6.setGeometry(QtCore.QRect(660, 360, 80, 20))
         self.label_of_lineEdit_6.setStyleSheet('border-style: solid; border-width: 1px; border-color: black;')
 
+
+        # раздел с таблицей клиентов
+
+        # кнопка создания таблицы клиентов
+        self.pushButton_create_t_o_c = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_create_t_o_c.setGeometry(1000, 40, 130, 40)
+        self.pushButton_create_t_o_c.setText('Создание таблицы \n клиентов')
+
+        # экран таблицы клиентов
+
+        self.label_toc = QtWidgets.QLabel(self.centralwidget)
+        self.label_toc.setGeometry(QtCore.QRect(1150,40, 400, 300))
+        self.label_toc.setFrameShape(QtWidgets.QFrame.Panel)
+        self.label_toc.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.label_toc.setStyleSheet('background-color: white')
+        # self.label.setPixmap(QtGui.QPixmap(source))
+
+        # кнопка вывода данных таблицы клиентов
+        self.pushButton_show_toc = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_show_toc.setGeometry(1000, 90, 130, 40)
+        self.pushButton_show_toc.setText('Вывод данных \n таблицы клиентов')
+
+        # insert preset data to table of clients button
+        self.pushButton_add_preset_toc = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_add_preset_toc.setGeometry(1000, 140, 130, 40)
+        self.pushButton_add_preset_toc.setText('Ввод данных \n preset')
+
+        # delete table of clients
+        self.pushButton_delete_toc = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_delete_toc.setGeometry(1000, 190, 130, 40)
+        self.pushButton_delete_toc.setText('Удаление таблицы \n клиентов')
 
 
         MainWindow.setCentralWidget(self.centralwidget)
@@ -201,17 +231,91 @@ class mywindow(QtWidgets.QMainWindow):
         # self.ui.pushButton_8.clicked.connect(self.lineEdit_1_event)
         # self.ui.pushButton_8.clicked.connect(self.add_data_to_table(4, 'M', 'market', 'buy', 800, 5, 'YNDX', 'time'))
         self.ui.pushButton_9.clicked.connect(self.sort_too)
+        self.ui.pushButton_create_t_o_c.clicked.connect(self.create_table_of_clients_function)
+        self.ui.pushButton_show_toc.clicked.connect(self.show_toc_func)
+        self.ui.pushButton_add_preset_toc.clicked.connect(self.add_preset_toc)
+        self.ui.pushButton_delete_toc.clicked.connect(self.del_toc)
 
 
         self.ui.radiobutton_ML_1.toggled.connect(self.rb_ml_1)
         self.ui.radiobutton_ML_2.toggled.connect(self.rb_ml_2)
-
         self.ui.radiobutton_BS_1.toggled.connect(self.rb_bs_1)
         self.ui.radiobutton_BS_2.toggled.connect(self.rb_bs_2)
 
         self.initUi()
 
+    def del_toc(self):
+        con = sl.connect(data_base_path)
+        cur = con.cursor()
+        try:
+            cur.execute("DROP TABLE TABLE_OF_CLIENTS")
+            con.close()
+            self.statusBar().showMessage('Table of clients IS ERASED')
+        except Exception as e:
+            print(e)
+            self.statusBar().showMessage(str(e))
 
+    def add_preset_toc(self):
+        con = sl.connect(data_base_path)
+        cursor = con.cursor()
+
+        try:
+            sql = 'INSERT INTO TABLE_OF_CLIENTS (id, name_client, cash, amount, ticker, datetime) values(null, ?, ?, ?, ?, ?)'
+            data = [('Alice', 1000000000, 1000, 'YNDX', datetime.today()),
+                    ('Bob', 2000000, 1100, 'YNDX', datetime.today()),
+                    ('Mikle', 9000000, 800, 'YNDX', datetime.today())]
+            with con:
+                con.executemany(sql, data)
+            self.statusBar().showMessage('INSERT executed succesful')
+        except Exception as e:
+            print(e)
+            self.statusBar().showMessage(str(e))
+
+        try:
+            cursor.execute("SELECT * FROM TABLE_OF_CLIENTS")
+            product = cursor.fetchall()  # вытаскиваем содержимое бд в виде списка
+            a = '\n'.join(map(str, product))  # разбиваем список переносом строки
+            self.ui.label_toc.setText(a)
+            self.statusBar().showMessage('DATA IS SHOWED')
+        except Exception as e:
+            print(e)
+            self.statusBar().showMessage(str(e))
+
+        con.close()
+
+
+    def show_toc_func(self):
+        con = sl.connect(data_base_path)
+        cursor = con.cursor()
+        try:
+            cursor.execute("SELECT * FROM TABLE_OF_CLIENTS")
+            product = cursor.fetchall()  # вытаскиваем содержимое бд в виде списка
+            a = '\n'.join(map(str, product))  # разбиваем список переносом строки
+            self.ui.label_toc.setText(a)
+            self.statusBar().showMessage('DATA IS SHOWED')
+        except Exception as e:
+            print(e)
+            self.statusBar().showMessage(str(e))
+        con.close()
+
+
+
+    def create_table_of_clients_function(self):
+        con = sl.connect(data_base_path)
+        # cursor = con.cursor()
+        try:
+            con.execute("""CREATE TABLE TABLE_OF_CLIENTS (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, 
+                name_client TEXT,
+                cash INTEGER,
+                amount INTEGER,
+                ticker TEXT,
+                datetime timestamp)""")
+            self.statusBar().showMessage('Create table_of_clients executed succesful')
+        except Exception as e:
+            print(e)
+            self.statusBar().showMessage(str(e))
+        con.commit()
+        con.close()
 
     def sort_too(self):
         con = sl.connect(data_base_path)
@@ -231,7 +335,6 @@ class mywindow(QtWidgets.QMainWindow):
             buy_list_sorted = sorted(buy_list, key=lambda buy_list:buy_list[4], reverse=True)
             sell_list_sorted = sorted(sell_list, key=lambda sell_list:sell_list[4])
 
-            # нужна сортировка при одинаковой цене, по времени заявки!
             def fun(v):  # вспомогательная функция для сортировки заявок
                 return (v[4], v[7])
             buy_list_sorted.sort(key=fun)
@@ -303,10 +406,6 @@ class mywindow(QtWidgets.QMainWindow):
             data = [('Alice', 'market', 'BUY', 900, 10, 'YNDX', datetime.today()),
                     ('Bob', 'market', 'SELL', 1100, 1, 'YNDX', datetime.today()),
                     ('Mikle', 'market', 'BUY', 800, 5, 'YNDX', datetime.today())]
-            # sql = 'INSERT INTO TABLE_OF_ORDERS (id, name_client, order_type, buy_sell, price, amount, ticker, datetime) values(?, ?, ?, ?, ?, ?, ?, ?)'
-            # data = [(1, 'Alice', 'market', 'buy', 900, 10, 'YNDX', datetime.today()),
-            #         (2, 'Bob', 'market', 'sell', 1100, 1, 'YNDX', datetime.today()),
-            #         (3, 'Mikle', 'market', 'buy', 800, 5, 'YNDX', datetime.today())]
             with con:
                 con.executemany(sql, data)
             self.statusBar().showMessage('INSERT executed succesful')
