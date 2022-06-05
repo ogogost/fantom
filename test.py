@@ -6,7 +6,8 @@ from datetime import datetime, date, time
 
 # Variables
 data_base_path = 'test.db'
-
+buy_list_sorted = ()
+sell_list_sorted = ()
 
 class Ui_MainWindow(object):
 
@@ -35,17 +36,20 @@ class Ui_MainWindow(object):
 
         # button 1
         self.pushButton_1 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_1.setGeometry(QtCore.QRect(1500, 800, 200, 100))
+        self.pushButton_1.setGeometry(QtCore.QRect(1700, 950, 200, 100))
+        self.pushButton_1.setStyleSheet("background-color: pink")
         self.pushButton_1.setText("Exit")
 
         # button 2
         self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_2.setGeometry(QtCore.QRect(40, 40, 200, 30))
+        self.pushButton_2.setStyleSheet("background-color: cyan")
         self.pushButton_2.setText("Создание БД")
 
         # button 3
         self.pushButton_3 = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_3.setGeometry(QtCore.QRect(40, 80, 200, 30))
+        self.pushButton_3.setStyleSheet("background-color: cyan")
         self.pushButton_3.setText("Создание таблицы ордеров")
 
         # button 4
@@ -61,11 +65,13 @@ class Ui_MainWindow(object):
         # button 6
         self.pushButton_6 = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_6.setGeometry(QtCore.QRect(40, 280, 200, 30))
+        self.pushButton_6.setStyleSheet("background-color: pink")
         self.pushButton_6.setText("Удаление таблицы ордеров")
 
         # button 7
         self.pushButton_7 = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_7.setGeometry(QtCore.QRect(40, 320, 200, 30))
+        self.pushButton_7.setStyleSheet("background-color: pink")
         self.pushButton_7.setText("Удаление БД")
 
         # button 8
@@ -77,6 +83,12 @@ class Ui_MainWindow(object):
         self.pushButton_9 = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_9.setGeometry(QtCore.QRect(340, 460, 200, 30))
         self.pushButton_9.setText("Сортировка")
+
+        # button 10
+        self.pushButton_10 = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_10.setGeometry(QtCore.QRect(340, 500, 200, 30))
+        self.pushButton_10.setText("Транзакция")
+
 
         # qline1
         self.lineEdit_1 = QtWidgets.QLineEdit(self.centralwidget)
@@ -158,7 +170,7 @@ class Ui_MainWindow(object):
         # qline6
         self.lineEdit_6 = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_6.setGeometry(QtCore.QRect(750, 360, 150, 40))
-        self.lineEdit_6.setText("YANDEX")
+        self.lineEdit_6.setText("YNDX")
         self.lineEdit_6.setMaxLength(100)
         self.label_of_lineEdit_6 = QtWidgets.QLabel(self.centralwidget)
         self.label_of_lineEdit_6.setText("Ticker")
@@ -171,6 +183,7 @@ class Ui_MainWindow(object):
         # кнопка создания таблицы клиентов
         self.pushButton_create_t_o_c = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_create_t_o_c.setGeometry(1000, 40, 130, 40)
+        self.pushButton_create_t_o_c.setStyleSheet("background-color: cyan")
         self.pushButton_create_t_o_c.setText('Создание таблицы \n клиентов')
 
         # экран таблицы клиентов
@@ -195,7 +208,76 @@ class Ui_MainWindow(object):
         # delete table of clients
         self.pushButton_delete_toc = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_delete_toc.setGeometry(1000, 190, 130, 40)
+        self.pushButton_delete_toc.setStyleSheet("background-color: pink")
         self.pushButton_delete_toc.setText('Удаление таблицы \n клиентов')
+
+        # qline name of client
+        self.lineEdit_7 = QtWidgets.QLineEdit(self.centralwidget)
+        self.lineEdit_7.setGeometry(QtCore.QRect(1700, 40, 150, 30))
+        self.lineEdit_7.setText("Name")
+        self.lineEdit_7.setMaxLength(100)
+        self.label_of_lineEdit_7 = QtWidgets.QLabel(self.centralwidget)
+        self.label_of_lineEdit_7.setText("Name of client")
+        self.label_of_lineEdit_7.setGeometry(QtCore.QRect(1600, 40, 80, 20))
+        self.label_of_lineEdit_7.setStyleSheet('border-style: solid; border-width: 1px; border-color: black;')
+
+        # qline cash
+        self.lineEdit_8 = QtWidgets.QLineEdit(self.centralwidget)
+        self.lineEdit_8.setGeometry(QtCore.QRect(1700, 80, 150, 30))
+        self.lineEdit_8.setText("0")
+        self.lineEdit_8.setMaxLength(100)
+        self.label_of_lineEdit_8 = QtWidgets.QLabel(self.centralwidget)
+        self.label_of_lineEdit_8.setText("Cash")
+        self.label_of_lineEdit_8.setGeometry(QtCore.QRect(1600, 80, 80, 20))
+        self.label_of_lineEdit_8.setStyleSheet('border-style: solid; border-width: 1px; border-color: black;')
+
+        # qline amount
+        self.lineEdit_9 = QtWidgets.QLineEdit(self.centralwidget)
+        self.lineEdit_9.setGeometry(QtCore.QRect(1700, 120, 150, 30))
+        self.lineEdit_9.setText("0")
+        self.lineEdit_9.setMaxLength(100)
+        self.label_of_lineEdit_9 = QtWidgets.QLabel(self.centralwidget)
+        self.label_of_lineEdit_9.setText("Amount")
+        self.label_of_lineEdit_9.setGeometry(QtCore.QRect(1600, 120, 80, 20))
+        self.label_of_lineEdit_9.setStyleSheet('border-style: solid; border-width: 1px; border-color: black;')
+
+        # qline ticker
+        self.lineEdit_10 = QtWidgets.QLineEdit(self.centralwidget)
+        self.lineEdit_10.setGeometry(QtCore.QRect(1700, 160, 150, 30))
+        self.lineEdit_10.setText("YNDX")
+        self.lineEdit_10.setMaxLength(100)
+        self.label_of_lineEdit_10 = QtWidgets.QLabel(self.centralwidget)
+        self.label_of_lineEdit_10.setText("Ticker")
+        self.label_of_lineEdit_10.setGeometry(QtCore.QRect(1600, 160, 80, 20))
+        self.label_of_lineEdit_10.setStyleSheet('border-style: solid; border-width: 1px; border-color: black;')
+
+
+        # кнопка добавки строки
+        self.pushButton_add_string_toc = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_add_string_toc.setGeometry(1620, 210, 200, 30)
+        self.pushButton_add_string_toc.setText('Добавка строки')
+
+
+
+        # раздел с таблицей сделок
+
+        self.label_tot = QtWidgets.QLabel(self.centralwidget)
+        self.label_tot.setGeometry(1100, 600, 500, 400)
+        self.label_tot.setFrameShape(QtWidgets.QFrame.Panel)
+        self.label_tot.setFrameShadow(QtWidgets.QFrame.Plain)
+
+        # кнопка создания таблицы
+        self.pushButton_create_t_o_t = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_create_t_o_t.setGeometry(900, 600, 130, 40)
+        self.pushButton_create_t_o_t.setText('Создание таблицы \n сделок')
+        self.pushButton_create_t_o_t.setStyleSheet("background-color: cyan")
+
+        # кнопка вывода таблицы
+        self.pushButton_show_t_o_t = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_show_t_o_t.setGeometry(900, 650, 130, 40)
+        self.pushButton_show_t_o_t.setText('Вывод таблицы \n сделок')
+
+
 
 
         MainWindow.setCentralWidget(self.centralwidget)
@@ -228,14 +310,15 @@ class mywindow(QtWidgets.QMainWindow):
         self.ui.pushButton_7.clicked.connect(self.erase_db_function)
         self.ui.lineEdit_1.editingFinished.connect(self.lineEdit_1_event)
         self.ui.pushButton_8.clicked.connect(self.add_data_to_table)
-        # self.ui.pushButton_8.clicked.connect(self.lineEdit_1_event)
-        # self.ui.pushButton_8.clicked.connect(self.add_data_to_table(4, 'M', 'market', 'buy', 800, 5, 'YNDX', 'time'))
         self.ui.pushButton_9.clicked.connect(self.sort_too)
+        self.ui.pushButton_10.clicked.connect(self.transaction)
         self.ui.pushButton_create_t_o_c.clicked.connect(self.create_table_of_clients_function)
         self.ui.pushButton_show_toc.clicked.connect(self.show_toc_func)
         self.ui.pushButton_add_preset_toc.clicked.connect(self.add_preset_toc)
         self.ui.pushButton_delete_toc.clicked.connect(self.del_toc)
-
+        self.ui.pushButton_add_string_toc.clicked.connect(self.add_string_toc)
+        self.ui.pushButton_create_t_o_t.clicked.connect(self.create_table_of_trades)
+        self.ui.pushButton_show_t_o_t.clicked.connect(self.show_tot_func)
 
         self.ui.radiobutton_ML_1.toggled.connect(self.rb_ml_1)
         self.ui.radiobutton_ML_2.toggled.connect(self.rb_ml_2)
@@ -243,6 +326,83 @@ class mywindow(QtWidgets.QMainWindow):
         self.ui.radiobutton_BS_2.toggled.connect(self.rb_bs_2)
 
         self.initUi()
+
+    def show_tot_func(self):
+
+        con = sl.connect(data_base_path)
+        cursor = con.cursor()
+        try:
+            cursor.execute("SELECT * FROM TABLE_OF_TRADES")
+            product = cursor.fetchall()  # вытаскиваем содержимое бд в виде списка
+            a = '\n'.join(map(str, product))  # разбиваем список переносом строки
+            self.ui.label_tot.setText(a)
+            self.statusBar().showMessage('DATA IS SHOWED')
+        except Exception as e:
+            print(e)
+            self.statusBar().showMessage(str(e))
+        con.close()
+
+    def create_table_of_trades(self):
+        con = sl.connect(data_base_path)
+        # cursor = con.cursor()
+        try:
+            con.execute("""CREATE TABLE TABLE_OF_TRADES (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, 
+                seller_name_client TEXT,
+                buyer_name_client TEXT,
+                price INTEGER,
+                amount INTEGER,
+                ticker TEXT,
+                datetime timestamp)""")
+
+            self.statusBar().showMessage('Create TABLE_OF_TRADES executed succesful')
+        except Exception as e:
+            print(e)
+            self.statusBar().showMessage(str(e))
+        con.commit()
+        con.close()
+
+
+    def transaction(self):
+        global buy_list_sorted
+        global sell_list_sorted
+
+        self.ui.label_tot.setText(str(buy_list_sorted[-1][4]) + "\n" + str(sell_list_sorted[0][4]))
+        if int(buy_list_sorted[-1][4]) <= int(sell_list_sorted[-1][4]):
+            self.statusBar().showMessage('OK')
+
+        else:
+            self.statusBar().showMessage('Error')
+
+
+    def add_string_toc(self):
+        name_client = self.ui.lineEdit_7.text()
+        cash =self.ui.lineEdit_8.text()
+        amount = self.ui.lineEdit_9.text()
+        ticker = self.ui.lineEdit_10.text()
+
+        con = sl.connect(data_base_path)
+        cursor = con.cursor()
+
+        try:
+            sql = 'INSERT INTO TABLE_OF_CLIENTS (id, name_client, cash, amount, ticker, datetime) values(null, ?, ?, ?, ?, ?)'
+            data = [(name_client, cash, amount, ticker, datetime.today())]
+            con.executemany(sql, data)
+            cursor.execute("SELECT * FROM TABLE_OF_CLIENTS")
+            product = cursor.fetchall()  # вытаскиваем содержимое бд в виде списка
+            a = '\n'.join(map(str, product))  # разбиваем список переносом строки
+            self.ui.label_toc.setText(a)
+            con.commit()
+            con.close()
+            # show_data_function(self)
+
+            self.statusBar().showMessage('INSERT of DATA succesful' + str(data))
+
+        except Exception as e:
+            print(e)
+            self.statusBar().showMessage(str(e))
+        con.close()
+
+
 
     def del_toc(self):
         con = sl.connect(data_base_path)
@@ -299,7 +459,6 @@ class mywindow(QtWidgets.QMainWindow):
         con.close()
 
 
-
     def create_table_of_clients_function(self):
         con = sl.connect(data_base_path)
         # cursor = con.cursor()
@@ -310,6 +469,8 @@ class mywindow(QtWidgets.QMainWindow):
                 amount INTEGER,
                 ticker TEXT,
                 datetime timestamp)""")
+            # следующая запись делает колонку name_client в таблице клиентов уникальной, то есть в нее нельзя записать дубль!
+            con.execute("""CREATE UNIQUE INDEX name_client ON TABLE_OF_CLIENTS(name_client)""")
             self.statusBar().showMessage('Create table_of_clients executed succesful')
         except Exception as e:
             print(e)
@@ -318,11 +479,15 @@ class mywindow(QtWidgets.QMainWindow):
         con.close()
 
     def sort_too(self):
+
+        global buy_list_sorted
+        global sell_list_sorted
+
         con = sl.connect(data_base_path)
         cursor = con.cursor()
         try:
             cursor.execute("SELECT * FROM TABLE_OF_ORDERS")
-            product = cursor.fetchall()  # вытаскиваем содержимое бд в виде списка
+            product = cursor.fetchall()  # вытаскиваем содержимое таблицы ордеров в виде списка
             buy_list = [] # создаём пустые списки
             sell_list = [] # создаём пустые списки
             for i in product: # цикл добавляет строки из бд по наличию слова BUY в списке
@@ -337,14 +502,16 @@ class mywindow(QtWidgets.QMainWindow):
 
             def fun(v):  # вспомогательная функция для сортировки заявок
                 return (v[4], v[7])
+
+            # сортируем по функции, в случае одинаковой цены, приоритет по времени заявки
             buy_list_sorted.sort(key=fun)
             sell_list_sorted.sort(key=fun)
 
             a = '\n'.join(map(str, buy_list_sorted))
             b = '\n'.join(map(str, sell_list_sorted))
 
-            self.ui.status_monitor.setText(str(a) + '\n' + str(b))
-            # self.ui.status_monitor.setText(str(product))
+            self.ui.status_monitor.setText(str(a) + '\n'+ '\n' + str(b))
+
             con.commit()
             con.close()
 
@@ -403,9 +570,9 @@ class mywindow(QtWidgets.QMainWindow):
         con = sl.connect(data_base_path)
         try:
             sql = 'INSERT INTO TABLE_OF_ORDERS (id, name_client, order_type, buy_sell, price, amount, ticker, datetime) values(null, ?, ?, ?, ?, ?, ?, ?)'
-            data = [('Alice', 'market', 'BUY', 900, 10, 'YNDX', datetime.today()),
-                    ('Bob', 'market', 'SELL', 1100, 1, 'YNDX', datetime.today()),
-                    ('Mikle', 'market', 'BUY', 800, 5, 'YNDX', datetime.today())]
+            data = [('Alice', 'Market', 'BUY', 900, 10, 'YNDX', datetime.today()),
+                    ('Bob', 'Market', 'SELL', 1100, 1, 'YNDX', datetime.today()),
+                    ('Mikle', 'Market', 'BUY', 800, 5, 'YNDX', datetime.today())]
             with con:
                 con.executemany(sql, data)
             self.statusBar().showMessage('INSERT executed succesful')

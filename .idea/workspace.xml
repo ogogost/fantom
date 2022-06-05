@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="22ef6a0b-a799-42ea-9696-00125e5ee605" name="Changes" comment="сортировка по buy/sell">
+    <list default="true" id="22ef6a0b-a799-42ea-9696-00125e5ee605" name="Changes" comment="таблица клиентов и кнопки">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.db" beforeDir="false" afterPath="$PROJECT_DIR$/test.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
@@ -231,7 +231,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633033534459</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="таблица клиентов и кнопки">
+      <created>1654345461610</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1654345461610</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -251,6 +258,7 @@
     <MESSAGE value="220921" />
     <MESSAGE value="300921" />
     <MESSAGE value="300921-2" />
-    <option name="LAST_COMMIT_MESSAGE" value="300921-2" />
+    <MESSAGE value="таблица клиентов и кнопки" />
+    <option name="LAST_COMMIT_MESSAGE" value="таблица клиентов и кнопки" />
   </component>
 </project>
