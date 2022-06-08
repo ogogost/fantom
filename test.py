@@ -367,8 +367,8 @@ class mywindow(QtWidgets.QMainWindow):
         global sell_list_sorted
 
         self.ui.label_tot.setText(str(buy_list_sorted[-1]) + "\n" + str(sell_list_sorted[0]))
-        if int(buy_list_sorted[-1][4]) <= int(sell_list_sorted[-1][4]):
-            delta_price = int(sell_list_sorted[-1][4]) - int(buy_list_sorted[-1][4])
+        if int(buy_list_sorted[-1][4]) >= int(sell_list_sorted[0][4]):
+            delta_price = int(buy_list_sorted[-1][4]) - int(sell_list_sorted[0][4])
             self.statusBar().showMessage('OK' + "    delta price = " +  str(delta_price))
 
         else:
