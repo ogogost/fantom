@@ -411,8 +411,13 @@ class mywindow(QtWidgets.QMainWindow):
 
                 try:
                     con.execute('INSERT INTO TABLE TABLE_OF_TRADES (id, seller_name_client, buyer_name_client, price, amount, ticker, datetime) values (null, ?,?,?,?,?,?')
-                    data = ()
-                    self.statusBar().showMessage('Create TABLE_OF_TRADES executed succesful')
+                    data = (sell_list_sorted[0][1], buy_list_sorted[-1][1], sell_list_sorted[0][4], trade_amount,
+                            sell_list_sorted[0][6], datetime.today())
+                    con.executemany(sql, data)
+                    cursor.execute('SELECT * FROM TABLE_OF_TRADES')
+                    trades = cursor.fetchall()
+                    self.ui.label_tot.setText(trades)
+                    self.statusBar().showMessage('Insert to TABLE_OF_TRADES executed succesful')
                 except Exception as e:
                     print(e)
                     self.statusBar().showMessage(str(e))
