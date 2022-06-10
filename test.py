@@ -1,8 +1,8 @@
 import sqlite3 as sl
-from PyQt5 import QtCore, QtWidgets
 import sys
 import os
 from datetime import datetime, date, time
+from PyQt5 import QtCore, QtWidgets
 
 # Variables
 data_base_path = 'test.db'
@@ -365,11 +365,64 @@ class mywindow(QtWidgets.QMainWindow):
     def transaction(self):
         global buy_list_sorted
         global sell_list_sorted
+        delta_amount = 0
+        delta_price = 0
 
-        self.ui.label_tot.setText(str(buy_list_sorted[-1]) + "\n" + str(sell_list_sorted[0]))
-        if int(buy_list_sorted[-1][4]) <= int(sell_list_sorted[-1][4]):
-            delta_price = int(sell_list_sorted[-1][4]) - int(buy_list_sorted[-1][4])
-            self.statusBar().showMessage('OK' + "    delta price = " +  str(delta_price))
+        self.ui.label_tot.setText(str(buy_list_sorted[-1]) + "\n" + str(sell_list_sorted[0])  + "\n" + str(buy_list_sorted[-1][0]) + "\n" +  str(sell_list_sorted[0][0])  )
+        if int(buy_list_sorted[-1][4]) >= int(sell_list_sorted[0][4]):
+            delta_price = int(buy_list_sorted[-1][4] - int(sell_list_sorted[0][4]))
+            delta_amount = int(buy_list_sorted[-1][5]) - int(sell_list_sorted[0][5])
+            trade_amount = min(buy_list_sorted[-1][5],sell_list_sorted[0][5])
+
+            if delta_amount == 0:
+                # убрать обе записи из таблицы ордеров
+                con = sl.connect(data_base_path)
+
+                def delete_t_o_o_id(id):
+                    try:
+                        sql = 'DELETE FROM TABLE_OF_ORDERS WHERE id = ?'
+                        con.execute(sql, (id,))
+
+                    except Exception as e:
+                        print(e)
+                        self.statusBar().showMessage(str(e))
+
+                delete_t_o_o_id(buy_list_sorted[-1][0])
+                delete_t_o_o_id(sell_list_sorted[0][0])
+
+                # вносим изменения в таблице клиентов, по каждому клиенту
+
+                def update_t_o_c(money, amount, name):
+                    try:
+                        sql = 'UPDATE TABLE_OF_CLIENTS set cash = cash + ?, amount = amount + ? where name_client = ?'
+                        data = (money, amount, name)
+                        con.execute(sql, (data,))
+
+                        # деньги сделки = цена сделки * кол-во акций сделки
+                        money = sell_list_sorted[0][4] * trade_amount
+
+                    except Exception as e:
+                        print(e)
+                        self.statusBar().showMessage(str(e))
+
+                update_t_o_c(buyer_money, trade_amount, buyer_name)
+
+                # создаем запись в таблице сделок
+
+                try:
+                    con.execute('INSERT INTO TABLE TABLE_OF_TRADES (id, seller_name_client, buyer_name_client, price, amount, ticker, datetime) values (null, ?,?,?,?,?,?')
+                    data = ()
+                    self.statusBar().showMessage('Create TABLE_OF_TRADES executed succesful')
+                except Exception as e:
+                    print(e)
+                    self.statusBar().showMessage(str(e))
+
+
+                con.commit()
+                con.close()
+
+
+            self.statusBar().showMessage('OK' + "    delta_price = " +  str(delta_price) + '  delta_amount = ' + str(delta_amount))
 
         else:
             self.statusBar().showMessage('Error')
