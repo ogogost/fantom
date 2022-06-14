@@ -1,13 +1,25 @@
 import sqlite3 as sl
 import sys
 import os
-from datetime import datetime, date, time
+import logging
+
+from datetime import datetime
 from PyQt5 import QtCore, QtWidgets
 
 # Variables
 data_base_path = 'test.db'
 buy_list_sorted = ()
 sell_list_sorted = ()
+data_combobox = (['111', '222'])
+
+logging.basicConfig(
+    level=logging.DEBUG,
+    filename = "mylog.log",
+    format = "%(asctime)s - %(module)s - %(levelname)s - %(funcName)s: %(lineno)d - %(message)s",
+    datefmt='%H:%M:%S',
+    )
+
+logging.info('Start script')
 
 class Ui_MainWindow(object):
 
@@ -19,20 +31,16 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName("centralwidget")
 
         self.label = QtWidgets.QLabel(self.centralwidget)
-        # self.label = QtWidgets.QTableWidget(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(250, 40, 400, 400))
         self.label.setFrameShape(QtWidgets.QFrame.Panel)
         self.label.setFrameShadow(QtWidgets.QFrame.Plain)
         self.label.setStyleSheet('background-color: white')
-        # self.label.setPixmap(QtGui.QPixmap(source))
         self.label.setObjectName("label")
-
 
         self.status_monitor = QtWidgets.QLabel(self.centralwidget)
         self.status_monitor.setGeometry(200, 600, 500, 400)
         self.status_monitor.setFrameShape(QtWidgets.QFrame.Panel)
         self.status_monitor.setFrameShadow(QtWidgets.QFrame.Plain)
-
 
         # button 1
         self.pushButton_1 = QtWidgets.QPushButton(self.centralwidget)
@@ -89,17 +97,22 @@ class Ui_MainWindow(object):
         self.pushButton_10.setGeometry(QtCore.QRect(340, 500, 200, 30))
         self.pushButton_10.setText("Транзакция")
 
-
         # qline1
         self.lineEdit_1 = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_1.setGeometry(QtCore.QRect(750, 130, 150, 30))
         self.lineEdit_1.setText("John")
-        # self.lineEdit_1.setInputMask('HHH:HHH')
         self.lineEdit_1.setMaxLength(100)
         self.label_of_lineEdit_1 = QtWidgets.QLabel(self.centralwidget)
         self.label_of_lineEdit_1.setText("Name_of_client")
-        self.label_of_lineEdit_1.setGeometry(QtCore.QRect(660,130,80,20))
+        self.label_of_lineEdit_1.setGeometry(QtCore.QRect(660, 130, 80, 20))
         self.label_of_lineEdit_1.setStyleSheet('border-style: solid; border-width: 1px; border-color: black;')
+
+        # # combobox
+        # self.combo = QtWidgets.QComboBox(self.centralwidget)
+        # self.combo.setGeometry(750, 130, 150, 30)
+        # self.combo.setEditable(True)
+        # self.combo.addItems(data_combobox)
+        # self.combo.setStyleSheet('QCombobox {background-color: white; color: black}')
 
         # qline2
         self.lineEdit_2 = QtWidgets.QLineEdit(self.centralwidget)
@@ -155,7 +168,6 @@ class Ui_MainWindow(object):
         self.label_of_lineEdit_4.setGeometry(QtCore.QRect(660, 280, 80, 20))
         self.label_of_lineEdit_4.setStyleSheet('border-style: solid; border-width: 1px; border-color: black;')
 
-
         # qline5
         self.lineEdit_5 = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_5.setGeometry(QtCore.QRect(750, 320, 150, 30))
@@ -166,10 +178,9 @@ class Ui_MainWindow(object):
         self.label_of_lineEdit_5.setGeometry(QtCore.QRect(660, 320, 80, 20))
         self.label_of_lineEdit_5.setStyleSheet('border-style: solid; border-width: 1px; border-color: black;')
 
-
         # qline6
         self.lineEdit_6 = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_6.setGeometry(QtCore.QRect(750, 360, 150, 40))
+        self.lineEdit_6.setGeometry(QtCore.QRect(750, 360, 150, 30))
         self.lineEdit_6.setText("YNDX")
         self.lineEdit_6.setMaxLength(100)
         self.label_of_lineEdit_6 = QtWidgets.QLabel(self.centralwidget)
@@ -177,39 +188,38 @@ class Ui_MainWindow(object):
         self.label_of_lineEdit_6.setGeometry(QtCore.QRect(660, 360, 80, 20))
         self.label_of_lineEdit_6.setStyleSheet('border-style: solid; border-width: 1px; border-color: black;')
 
-
         # раздел с таблицей клиентов
 
         # кнопка создания таблицы клиентов
-        self.pushButton_create_t_o_c = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_create_t_o_c.setGeometry(1000, 40, 130, 40)
-        self.pushButton_create_t_o_c.setStyleSheet("background-color: cyan")
-        self.pushButton_create_t_o_c.setText('Создание таблицы \n клиентов')
+        self.pushButton_create_clients = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_create_clients.setGeometry(1000, 40, 130, 40)
+        self.pushButton_create_clients.setStyleSheet("background-color: cyan")
+        self.pushButton_create_clients.setText('Создание таблицы \n клиентов')
 
         # экран таблицы клиентов
 
-        self.label_toc = QtWidgets.QLabel(self.centralwidget)
-        self.label_toc.setGeometry(QtCore.QRect(1150,40, 400, 300))
-        self.label_toc.setFrameShape(QtWidgets.QFrame.Panel)
-        self.label_toc.setFrameShadow(QtWidgets.QFrame.Plain)
-        self.label_toc.setStyleSheet('background-color: white')
+        self.label_CLIENTS = QtWidgets.QLabel(self.centralwidget)
+        self.label_CLIENTS.setGeometry(QtCore.QRect(1150, 40, 400, 300))
+        self.label_CLIENTS.setFrameShape(QtWidgets.QFrame.Panel)
+        self.label_CLIENTS.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.label_CLIENTS.setStyleSheet('background-color: white')
         # self.label.setPixmap(QtGui.QPixmap(source))
 
         # кнопка вывода данных таблицы клиентов
-        self.pushButton_show_toc = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_show_toc.setGeometry(1000, 90, 130, 40)
-        self.pushButton_show_toc.setText('Вывод данных \n таблицы клиентов')
+        self.pushButton_show_CLIENTS = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_show_CLIENTS.setGeometry(1000, 90, 130, 40)
+        self.pushButton_show_CLIENTS.setText('Вывод данных \n таблицы клиентов')
 
         # insert preset data to table of clients button
-        self.pushButton_add_preset_toc = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_add_preset_toc.setGeometry(1000, 140, 130, 40)
-        self.pushButton_add_preset_toc.setText('Ввод данных \n preset')
+        self.pushButton_add_preset_CLIENTS = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_add_preset_CLIENTS.setGeometry(1000, 140, 130, 40)
+        self.pushButton_add_preset_CLIENTS.setText('Ввод данных \n preset')
 
         # delete table of clients
-        self.pushButton_delete_toc = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_delete_toc.setGeometry(1000, 190, 130, 40)
-        self.pushButton_delete_toc.setStyleSheet("background-color: pink")
-        self.pushButton_delete_toc.setText('Удаление таблицы \n клиентов')
+        self.pushButton_delete_CLIENTS = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_delete_CLIENTS.setGeometry(1000, 190, 130, 40)
+        self.pushButton_delete_CLIENTS.setStyleSheet("background-color: pink")
+        self.pushButton_delete_CLIENTS.setText('Удаление таблицы \n клиентов')
 
         # qline name of client
         self.lineEdit_7 = QtWidgets.QLineEdit(self.centralwidget)
@@ -251,34 +261,33 @@ class Ui_MainWindow(object):
         self.label_of_lineEdit_10.setGeometry(QtCore.QRect(1600, 160, 80, 20))
         self.label_of_lineEdit_10.setStyleSheet('border-style: solid; border-width: 1px; border-color: black;')
 
-
         # кнопка добавки строки
-        self.pushButton_add_string_toc = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_add_string_toc.setGeometry(1620, 210, 200, 30)
-        self.pushButton_add_string_toc.setText('Добавка строки')
-
-
+        self.pushButton_add_string_CLIENTS = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_add_string_CLIENTS.setGeometry(1620, 210, 200, 30)
+        self.pushButton_add_string_CLIENTS.setText('Добавка строки')
 
         # раздел с таблицей сделок
 
-        self.label_tot = QtWidgets.QLabel(self.centralwidget)
-        self.label_tot.setGeometry(1100, 600, 500, 400)
-        self.label_tot.setFrameShape(QtWidgets.QFrame.Panel)
-        self.label_tot.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.label_TRADES = QtWidgets.QLabel(self.centralwidget)
+        self.label_TRADES.setGeometry(1100, 600, 500, 400)
+        self.label_TRADES.setFrameShape(QtWidgets.QFrame.Panel)
+        self.label_TRADES.setFrameShadow(QtWidgets.QFrame.Plain)
 
         # кнопка создания таблицы
-        self.pushButton_create_t_o_t = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_create_t_o_t.setGeometry(900, 600, 130, 40)
-        self.pushButton_create_t_o_t.setText('Создание таблицы \n сделок')
-        self.pushButton_create_t_o_t.setStyleSheet("background-color: cyan")
+        self.pushButton_create_TRADES = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_create_TRADES.setGeometry(900, 600, 130, 40)
+        self.pushButton_create_TRADES.setText('Создание таблицы \n сделок')
+        self.pushButton_create_TRADES.setStyleSheet("background-color: cyan")
 
         # кнопка вывода таблицы
-        self.pushButton_show_t_o_t = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_show_t_o_t.setGeometry(900, 650, 130, 40)
-        self.pushButton_show_t_o_t.setText('Вывод таблицы \n сделок')
+        self.pushButton_show_TRADES = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_show_TRADES.setGeometry(900, 650, 130, 40)
+        self.pushButton_show_TRADES.setText('Вывод таблицы \n сделок')
 
-
-
+        # кнопка показа всех данных таблиц
+        self.pushButton_show_all = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_show_all.setGeometry(1700, 800, 200, 100)
+        self.pushButton_show_all.setText('Показать все данные')
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
@@ -295,6 +304,7 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
 
+
 class mywindow(QtWidgets.QMainWindow):
 
     def __init__(self):
@@ -304,49 +314,56 @@ class mywindow(QtWidgets.QMainWindow):
         self.ui.pushButton_1.clicked.connect(self.exit_function)
         self.ui.pushButton_2.clicked.connect(self.create_db_function)
         self.ui.pushButton_3.clicked.connect(self.create_table_function)
-        self.ui.pushButton_4.clicked.connect(self.create_data_function)
-        self.ui.pushButton_5.clicked.connect(self.show_data_function)
+        self.ui.pushButton_4.clicked.connect(self.create_ORDERS)
+        self.ui.pushButton_5.clicked.connect(self.show_ORDERS)
         self.ui.pushButton_6.clicked.connect(self.erase_db_table_function)
         self.ui.pushButton_7.clicked.connect(self.erase_db_function)
         self.ui.lineEdit_1.editingFinished.connect(self.lineEdit_1_event)
         self.ui.pushButton_8.clicked.connect(self.add_data_to_table)
-        self.ui.pushButton_9.clicked.connect(self.sort_too)
+        self.ui.pushButton_9.clicked.connect(self.sort_ORDERS)
         self.ui.pushButton_10.clicked.connect(self.transaction)
-        self.ui.pushButton_create_t_o_c.clicked.connect(self.create_table_of_clients_function)
-        self.ui.pushButton_show_toc.clicked.connect(self.show_toc_func)
-        self.ui.pushButton_add_preset_toc.clicked.connect(self.add_preset_toc)
-        self.ui.pushButton_delete_toc.clicked.connect(self.del_toc)
-        self.ui.pushButton_add_string_toc.clicked.connect(self.add_string_toc)
-        self.ui.pushButton_create_t_o_t.clicked.connect(self.create_table_of_trades)
-        self.ui.pushButton_show_t_o_t.clicked.connect(self.show_tot_func)
+        self.ui.pushButton_create_clients.clicked.connect(self.create_CLIENTS_function)
+        self.ui.pushButton_show_CLIENTS.clicked.connect(self.show_CLIENTS_func)
+        self.ui.pushButton_add_preset_CLIENTS.clicked.connect(self.add_preset_CLIENTS)
+        self.ui.pushButton_delete_CLIENTS.clicked.connect(self.del_CLIENTS)
+        self.ui.pushButton_add_string_CLIENTS.clicked.connect(self.add_string_CLIENTS)
+        self.ui.pushButton_create_TRADES.clicked.connect(self.create_TRADES)
+        self.ui.pushButton_show_TRADES.clicked.connect(self.show_TRADES_func)
+        self.ui.pushButton_show_all.clicked.connect(self.show_all)
 
         self.ui.radiobutton_ML_1.toggled.connect(self.rb_ml_1)
         self.ui.radiobutton_ML_2.toggled.connect(self.rb_ml_2)
         self.ui.radiobutton_BS_1.toggled.connect(self.rb_bs_1)
         self.ui.radiobutton_BS_2.toggled.connect(self.rb_bs_2)
 
+        # self.ui.combo.activated.connect(self.onActivated)
+
         self.initUi()
 
-    def show_tot_func(self):
+    def onActivated(self):
+        global data_combobox
+        data_combobox = ('dddd', 'ssss', 'vvvv')
+        self.ui.status_monitor.setText('combobox activated')
 
+    def show_TRADES_func(self):
         con = sl.connect(data_base_path)
         cursor = con.cursor()
         try:
-            cursor.execute("SELECT * FROM TABLE_OF_TRADES")
+            cursor.execute("SELECT * FROM TRADES")
             product = cursor.fetchall()  # вытаскиваем содержимое бд в виде списка
             a = '\n'.join(map(str, product))  # разбиваем список переносом строки
-            self.ui.label_tot.setText(a)
+            self.ui.label_TRADES.setText(a)
             self.statusBar().showMessage('DATA IS SHOWED')
         except Exception as e:
             print(e)
             self.statusBar().showMessage(str(e))
         con.close()
 
-    def create_table_of_trades(self):
+    def create_TRADES(self):
         con = sl.connect(data_base_path)
         # cursor = con.cursor()
         try:
-            con.execute("""CREATE TABLE TABLE_OF_TRADES (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, 
+            con.execute("""CREATE TABLE TRADES (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, 
                 seller_name_client TEXT,
                 buyer_name_client TEXT,
                 price INTEGER,
@@ -354,210 +371,201 @@ class mywindow(QtWidgets.QMainWindow):
                 ticker TEXT,
                 datetime timestamp)""")
 
-            self.statusBar().showMessage('Create TABLE_OF_TRADES executed succesful')
+            self.statusBar().showMessage('Create TRADES executed succesful')
         except Exception as e:
             print(e)
             self.statusBar().showMessage(str(e))
         con.commit()
         con.close()
 
-
     def transaction(self):
         global buy_list_sorted
         global sell_list_sorted
-        delta_amount = 0
-        delta_price = 0
 
-        self.ui.label_tot.setText(str(buy_list_sorted[-1]) + "\n" + str(sell_list_sorted[0])  + "\n" + str(buy_list_sorted[-1][0]) + "\n" +  str(sell_list_sorted[0][0])  )
-        if int(buy_list_sorted[-1][4]) >= int(sell_list_sorted[0][4]):
-            delta_price = int(buy_list_sorted[-1][4] - int(sell_list_sorted[0][4]))
-            delta_amount = int(buy_list_sorted[-1][5]) - int(sell_list_sorted[0][5])
-            trade_amount = min(buy_list_sorted[-1][5],sell_list_sorted[0][5])
+        buyer = buy_list_sorted[-1]
+        seller = sell_list_sorted[0]
+        buyer_name = buyer[1]
+        seller_name = seller[1]
 
+        delta_price = int(buyer[4] - int(seller[4]))
+        delta_amount = int(buyer[5]) - int(seller[5])
+
+        trade_amount = min(buyer[5], seller[5])
+        sell_price = seller[4]
+        trade_money = trade_amount * sell_price
+
+        self.ui.label_TRADES.setText(str(buyer) + "\n" + str(seller)
+                                     + "\n" + str(buyer[0]) + "\n" + str(seller[0]))
+
+        if int(buyer[4]) >= int(seller[4]):
             if delta_amount == 0:
                 # убрать обе записи из таблицы ордеров
                 con = sl.connect(data_base_path)
+                cursor = con.cursor()
 
-                def delete_t_o_o_id(id):
+                def delete_ORDERS_id(id_order):
                     try:
-                        sql = 'DELETE FROM TABLE_OF_ORDERS WHERE id = ?'
-                        con.execute(sql, (id,))
-
-                    except Exception as e:
-                        print(e)
-                        self.statusBar().showMessage(str(e))
-
-                delete_t_o_o_id(buy_list_sorted[-1][0])
-                delete_t_o_o_id(sell_list_sorted[0][0])
+                        sql_query = 'DELETE FROM ORDERS WHERE id = ?'
+                        con.execute(sql_query, (id_order,))
+                    except Exception as error:
+                        print(error)
+                        self.statusBar().showMessage(str(error))
+                delete_ORDERS_id(buyer[0])
+                delete_ORDERS_id(seller[0])
 
                 # вносим изменения в таблице клиентов, по каждому клиенту
-
-                def update_t_o_c(money, amount, name):
+                def update_CLIENTS(money, amount, name):
                     try:
-                        sql = 'UPDATE TABLE_OF_CLIENTS set cash = cash + ?, amount = amount + ? where name_client = ?'
+                        sql_query = 'UPDATE CLIENTS set cash = cash + ?, amount = amount + ? where name_client = ?'
                         data = (money, amount, name)
-                        con.execute(sql, (data,))
-
-                        # деньги сделки = цена сделки * кол-во акций сделки
-                        money = sell_list_sorted[0][4] * trade_amount
-
-                    except Exception as e:
-                        print(e)
-                        self.statusBar().showMessage(str(e))
-
-                update_t_o_c(buyer_money, trade_amount, buyer_name)
+                        con.execute(sql_query, (data,))
+                    except Exception as error:
+                        print(error)
+                        self.statusBar().showMessage(str(error))
+                update_CLIENTS(trade_money, trade_amount, buyer_name)
+                update_CLIENTS(trade_money, trade_amount, seller_name)
 
                 # создаем запись в таблице сделок
-
                 try:
-                    con.execute('INSERT INTO TABLE TABLE_OF_TRADES (id, seller_name_client, buyer_name_client, price, amount, ticker, datetime) values (null, ?,?,?,?,?,?')
-                    data = (sell_list_sorted[0][1], buy_list_sorted[-1][1], sell_list_sorted[0][4], trade_amount,
-                            sell_list_sorted[0][6], datetime.today())
+                    sql = 'INSERT INTO TABLE TRADES (id, seller_name_client, buyer_name_client,'
+                    ' price, amount, ticker, datetime) values (null, ?,?,?,?,?,?'
+                    data = (seller_name, buyer_name, sell_price, trade_amount,
+                            seller[6], datetime.today())
                     con.executemany(sql, data)
-                    cursor.execute('SELECT * FROM TABLE_OF_TRADES')
+                    cursor.execute('SELECT * FROM TRADES')
                     trades = cursor.fetchall()
-                    self.ui.label_tot.setText(trades)
-                    self.statusBar().showMessage('Insert to TABLE_OF_TRADES executed succesful')
-                except Exception as e:
-                    print(e)
-                    self.statusBar().showMessage(str(e))
-
-
+                    self.ui.label_TRADES.setText(str(trades))
+                    self.statusBar().showMessage('Insert to TRADES executed succesful')
+                except Exception as error:
+                    print(error)
+                    self.statusBar().showMessage(str(error))
                 con.commit()
                 con.close()
-
-
-            self.statusBar().showMessage('OK' + "    delta_price = " +  str(delta_price) + '  delta_amount = ' + str(delta_amount))
-
+                self.statusBar().showMessage(
+                    'OK' + "    delta_price = " + str(delta_price) + '  delta_amount = ' + str(delta_amount))
+            else:
+                # определяем минорный ордер
+                minor_id_order = 0
         else:
-            self.statusBar().showMessage('Error')
+            self.statusBar().showMessage('Nothing to trade')
 
-
-    def add_string_toc(self):
+    def add_string_CLIENTS(self):
         name_client = self.ui.lineEdit_7.text()
-        cash =self.ui.lineEdit_8.text()
+        cash = self.ui.lineEdit_8.text()
         amount = self.ui.lineEdit_9.text()
         ticker = self.ui.lineEdit_10.text()
-
         con = sl.connect(data_base_path)
         cursor = con.cursor()
-
         try:
-            sql = 'INSERT INTO TABLE_OF_CLIENTS (id, name_client, cash, amount, ticker, datetime) values(null, ?, ?, ?, ?, ?)'
+            sql = 'INSERT INTO CLIENTS (id, name_client, cash, amount, ticker, datetime) values(null, ?, ?, ?, ?, ?)'
             data = [(name_client, cash, amount, ticker, datetime.today())]
             con.executemany(sql, data)
-            cursor.execute("SELECT * FROM TABLE_OF_CLIENTS")
+            cursor.execute("SELECT * FROM CLIENTS")
             product = cursor.fetchall()  # вытаскиваем содержимое бд в виде списка
             a = '\n'.join(map(str, product))  # разбиваем список переносом строки
-            self.ui.label_toc.setText(a)
+            self.ui.label_CLIENTS.setText(a)
             con.commit()
             con.close()
-            # show_data_function(self)
-
+            # show_ORDERS(self)
             self.statusBar().showMessage('INSERT of DATA succesful' + str(data))
-
-        except Exception as e:
-            print(e)
-            self.statusBar().showMessage(str(e))
+        except Exception as error:
+            print(error)
+            self.statusBar().showMessage(str(error))
         con.close()
 
-
-
-    def del_toc(self):
+    def del_CLIENTS(self):
         con = sl.connect(data_base_path)
         cur = con.cursor()
         try:
-            cur.execute("DROP TABLE TABLE_OF_CLIENTS")
+            cur.execute("DROP TABLE CLIENTS")
             con.close()
-            self.statusBar().showMessage('Table of clients IS ERASED')
+            self.statusBar().showMessage('Table of CLIENTS IS ERASED')
         except Exception as e:
             print(e)
             self.statusBar().showMessage(str(e))
 
-    def add_preset_toc(self):
+    def add_preset_CLIENTS(self):
         con = sl.connect(data_base_path)
         cursor = con.cursor()
 
         try:
-            sql = 'INSERT INTO TABLE_OF_CLIENTS (id, name_client, cash, amount, ticker, datetime) values(null, ?, ?, ?, ?, ?)'
+            sql = 'INSERT INTO CLIENTS (id, name_client, cash, amount, ticker, datetime) values(null, ?, ?, ?, ?, ?)'
             data = [('Alice', 1000000000, 1000, 'YNDX', datetime.today()),
                     ('Bob', 2000000, 1100, 'YNDX', datetime.today()),
                     ('Mikle', 9000000, 800, 'YNDX', datetime.today())]
             with con:
                 con.executemany(sql, data)
             self.statusBar().showMessage('INSERT executed succesful')
-        except Exception as e:
-            print(e)
-            self.statusBar().showMessage(str(e))
+        except Exception as error:
+            print(error)
+            self.statusBar().showMessage(str(error))
 
         try:
-            cursor.execute("SELECT * FROM TABLE_OF_CLIENTS")
+            cursor.execute("SELECT * FROM CLIENTS")
             product = cursor.fetchall()  # вытаскиваем содержимое бд в виде списка
             a = '\n'.join(map(str, product))  # разбиваем список переносом строки
-            self.ui.label_toc.setText(a)
+            self.ui.label_CLIENTS.setText(a)
             self.statusBar().showMessage('DATA IS SHOWED')
-        except Exception as e:
-            print(e)
-            self.statusBar().showMessage(str(e))
+        except Exception as error:
+            print(error)
+            self.statusBar().showMessage(str(error))
 
         con.close()
 
-
-    def show_toc_func(self):
+    def show_CLIENTS_func(self):
         con = sl.connect(data_base_path)
         cursor = con.cursor()
         try:
-            cursor.execute("SELECT * FROM TABLE_OF_CLIENTS")
+            cursor.execute("SELECT * FROM CLIENTS")
             product = cursor.fetchall()  # вытаскиваем содержимое бд в виде списка
             a = '\n'.join(map(str, product))  # разбиваем список переносом строки
-            self.ui.label_toc.setText(a)
-            self.statusBar().showMessage('DATA IS SHOWED')
-        except Exception as e:
-            print(e)
-            self.statusBar().showMessage(str(e))
+            self.ui.label_CLIENTS.setText(a)
+            self.statusBar().showMessage('DATA from CLIENTS is showed')
+            logging.info('DATA from CLIENTS is showed')
+        except Exception as Error:
+            print(Error)
+            self.statusBar().showMessage(str(Error))
         con.close()
 
-
-    def create_table_of_clients_function(self):
+    def create_CLIENTS_function(self):
         con = sl.connect(data_base_path)
         # cursor = con.cursor()
         try:
-            con.execute("""CREATE TABLE TABLE_OF_CLIENTS (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, 
+            con.execute("""CREATE TABLE CLIENTS (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, 
                 name_client TEXT,
                 cash INTEGER,
                 amount INTEGER,
                 ticker TEXT,
                 datetime timestamp)""")
-            # следующая запись делает колонку name_client в таблице клиентов уникальной, то есть в нее нельзя записать дубль!
-            con.execute("""CREATE UNIQUE INDEX name_client ON TABLE_OF_CLIENTS(name_client)""")
-            self.statusBar().showMessage('Create table_of_clients executed succesful')
-        except Exception as e:
-            print(e)
-            self.statusBar().showMessage(str(e))
+            # следующая запись делает колонку name_client в таблице клиентов уникальной,
+            # то есть в нее нельзя записать дубль!
+            con.execute("""CREATE UNIQUE INDEX name_client ON CLIENTS(name_client)""")
+            self.statusBar().showMessage('Create CLIENTS executed succesful')
+        except Exception as error:
+            print(error)
+            self.statusBar().showMessage(str(error))
         con.commit()
         con.close()
 
-    def sort_too(self):
+    def sort_ORDERS(self):
 
         global buy_list_sorted
         global sell_list_sorted
-
         con = sl.connect(data_base_path)
         cursor = con.cursor()
         try:
-            cursor.execute("SELECT * FROM TABLE_OF_ORDERS")
+            cursor.execute("SELECT * FROM ORDERS")
             product = cursor.fetchall()  # вытаскиваем содержимое таблицы ордеров в виде списка
-            buy_list = [] # создаём пустые списки
-            sell_list = [] # создаём пустые списки
-            for i in product: # цикл добавляет строки из бд по наличию слова BUY в списке
+            buy_list = []  # создаём пустые списки
+            sell_list = []  # создаём пустые списки
+            for i in product:  # цикл добавляет строки из бд по наличию слова BUY в списке
                 if i[3] == 'BUY':
                     buy_list.append(i)
                 else:
                     sell_list.append(i)
-
             # сортируем каждый список по величине цены
-            buy_list_sorted = sorted(buy_list, key=lambda buy_list:buy_list[4], reverse=True)
-            sell_list_sorted = sorted(sell_list, key=lambda sell_list:sell_list[4])
+            buy_list_sorted = sorted(buy_list, key=lambda buy_list: buy_list[4], reverse=True)
+            sell_list_sorted = sorted(sell_list, key=lambda sell_list: sell_list[4])
 
             def fun(v):  # вспомогательная функция для сортировки заявок
                 return (v[4], v[7])
@@ -565,35 +573,32 @@ class mywindow(QtWidgets.QMainWindow):
             # сортируем по функции, в случае одинаковой цены, приоритет по времени заявки
             buy_list_sorted.sort(key=fun)
             sell_list_sorted.sort(key=fun)
-
             a = '\n'.join(map(str, buy_list_sorted))
             b = '\n'.join(map(str, sell_list_sorted))
-
-            self.ui.status_monitor.setText(str(a) + '\n'+ '\n' + str(b))
-
+            self.ui.status_monitor.setText(str(a) + '\n' + '\n' + str(b))
             con.commit()
             con.close()
+            self.statusBar().showMessage('ORDERS is sorted')
 
-            self.statusBar().showMessage('table_of_orders is sorted')
-
-        except Exception as e:
-            print(e)
-            self.statusBar().showMessage(str(e))
+        except Exception as error:
+            print(error)
+            self.statusBar().showMessage(str(error))
         con.close()
+
     def rb_ml_1(self):
         self.ui.lineEdit_2.setText('Market')
+
     def rb_ml_2(self):
         self.ui.lineEdit_2.setText('Limit')
 
     def rb_bs_1(self):
         self.ui.lineEdit_3.setText('BUY')
+
     def rb_bs_2(self):
         self.ui.lineEdit_3.setText('SELL')
 
-
     def lineEdit_1_event(self):
         self.statusBar().showMessage(str(self.ui.lineEdit_1.text()))
-
 
     def initUi(self):
         self.statusBar().showMessage('Ready')
@@ -610,7 +615,7 @@ class mywindow(QtWidgets.QMainWindow):
         con = sl.connect(data_base_path)
         # cursor = con.cursor()
         try:
-            con.execute("""CREATE TABLE TABLE_OF_ORDERS (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, 
+            con.execute("""CREATE TABLE ORDERS (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, 
                 name_client TEXT,
                 order_type TEXT,
                 buy_sell TEXT,
@@ -625,10 +630,11 @@ class mywindow(QtWidgets.QMainWindow):
         con.commit()
         con.close()
 
-    def create_data_function(self):
+    def create_ORDERS(self):
         con = sl.connect(data_base_path)
         try:
-            sql = 'INSERT INTO TABLE_OF_ORDERS (id, name_client, order_type, buy_sell, price, amount, ticker, datetime) values(null, ?, ?, ?, ?, ?, ?, ?)'
+            sql = 'INSERT INTO ORDERS (id, name_client, order_type, buy_sell, price, amount, ticker, datetime)' \
+                  ' values(null, ?, ?, ?, ?, ?, ?, ?)'
             data = [('Alice', 'Market', 'BUY', 900, 10, 'YNDX', datetime.today()),
                     ('Bob', 'Market', 'SELL', 1100, 1, 'YNDX', datetime.today()),
                     ('Mikle', 'Market', 'BUY', 800, 5, 'YNDX', datetime.today())]
@@ -643,91 +649,83 @@ class mywindow(QtWidgets.QMainWindow):
     def add_data_to_table(self):
         name_client = self.ui.lineEdit_1.text()
         order_type = self.ui.lineEdit_2.text()
-        buy_sell =self.ui.lineEdit_3.text()
+        buy_sell = self.ui.lineEdit_3.text()
         price = self.ui.lineEdit_4.text()
         amount = self.ui.lineEdit_5.text()
         ticker = self.ui.lineEdit_6.text()
-
         con = sl.connect(data_base_path)
         cursor = con.cursor()
-
         try:
-            sql = 'INSERT INTO TABLE_OF_ORDERS (id, name_client, order_type, buy_sell, price, amount, ticker, datetime) values(null, ?, ?, ?, ?, ?, ?, ?)'
+            sql = 'INSERT INTO ORDERS (id, name_client, order_type, buy_sell, price, amount, ticker, datetime)' \
+                  ' values(null, ?, ?, ?, ?, ?, ?, ?)'
             data = [(name_client, order_type, buy_sell, price, amount, ticker, datetime.today())]
             con.executemany(sql, data)
-            cursor.execute("SELECT * FROM TABLE_OF_ORDERS")
+            cursor.execute("SELECT * FROM ORDERS")
             product = cursor.fetchall()  # вытаскиваем содержимое бд в виде списка
             a = '\n'.join(map(str, product))  # разбиваем список переносом строки
             self.ui.label.setText(a)
             con.commit()
             con.close()
-            # show_data_function(self)
-
+            # show_ORDERS(self)
             self.statusBar().showMessage('INSERT of DATA succesful' + str(data))
-
-        except Exception as e:
-            print(e)
-            self.statusBar().showMessage(str(e))
+        except Exception as error:
+            print(error)
+            self.statusBar().showMessage(str(error))
         con.close()
 
-
-    def show_data_function(self):
+    def show_ORDERS(self):
         con = sl.connect(data_base_path)
         cursor = con.cursor()
         try:
-            cursor.execute("SELECT * FROM TABLE_OF_ORDERS")
-            product = cursor.fetchall() # вытаскиваем содержимое бд в виде списка
-            a = '\n'.join(map(str, product)) # разбиваем список переносом строки
+            cursor.execute("SELECT * FROM ORDERS")
+            product = cursor.fetchall()  # вытаскиваем содержимое бд в виде списка
+            a = '\n'.join(map(str, product))  # разбиваем список переносом строки
             self.ui.label.setText(a)
             self.statusBar().showMessage('DATA IS SHOWED')
-        except Exception as e:
-            print(e)
-            self.statusBar().showMessage(str(e))
+        except Exception as error:
+            print(error)
+            self.statusBar().showMessage(str(error))
         con.close()
 
     def erase_db_table_function(self):
         con = sl.connect(data_base_path)
         cur = con.cursor()
         try:
-            cur.execute("DROP TABLE TABLE_OF_ORDERS")
+            cur.execute("DROP TABLE ORDERS")
             con.close()
             self.statusBar().showMessage('Table IS ERASED')
-        except Exception as e:
-            print(e)
-            self.statusBar().showMessage(str(e))
+        except Exception as error:
+            print(error)
+            self.statusBar().showMessage(str(error))
 
     def erase_db_function(self):
         try:
             os.remove(data_base_path)
-            self.statusBar().showMessage('DB IS ERASED' +" File: " + data_base_path)
-
-        except Exception as e:
-            print(e)
-            self.statusBar().showMessage(str(e))
-
+            self.statusBar().showMessage('DB IS ERASED' + " File: " + data_base_path)
+        except Exception as error:
+            print(error)
+            self.statusBar().showMessage(str(error))
 
     def status_monitor(self):
-        con = sl.connect(data_base_path)
-        cursor = con.cursor()
         try:
-            cursor.execute("SELECT * FROM TABLE_OF_ORDERS")
-            product = cursor.fetchall()
-            self.ui.status_monitor.setText(str(product))
-            # self.statusBar().showMessage('DATA IS SHOWED')
-        except Exception as e:
-            print(e)
-            # self.statusBar().showMessage(str(e))
-        con.close()
+            log_file = open('mylog.log')
+            log = []
+            for line in log_file.readlines():
+                log.append(line)
+            log_file.close()
+            self.ui.status_monitor.setText(str(log))
+        except Exception as error:
+            print(error)
+            self.statusBar().showMessage(str(error))
+
+    def show_all(self):
+        self.show_ORDERS()
+        self.show_CLIENTS_func()
+        self.show_TRADES_func()
+        self.status_monitor()
 
 
 app = QtWidgets.QApplication([])
 application = mywindow()
 application.show()
 sys.exit(app.exec())
-
-
-
-
-
-
-
