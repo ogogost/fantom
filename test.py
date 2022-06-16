@@ -444,8 +444,42 @@ class mywindow(QtWidgets.QMainWindow):
                 self.statusBar().showMessage(
                     'OK' + "    delta_price = " + str(delta_price) + '  delta_amount = ' + str(delta_amount))
             else:
-                # определяем минорный ордер
-                minor_id_order = 0
+                con = sl.connect(data_base_path)
+                cursor = con.cursor()
+                # определяем минорный и мажорный ордер
+                pair = [buyer, seller]
+                id_pairs = [buyer[0],seller[0]]
+                # minor_id_order = 0
+                # major_id_order = 0
+                for i in pair:
+                    if i[5] == trade_amount:
+                        minor_id_order = i[0]
+                        id_pairs.remove(minor_id_order)
+                        major_id_order = id_pairs[0]
+                        self.statusBar().showMessage('Minor_id_order: ' + str(minor_id_order) +
+                                                     ' Trade_amount: ' + str(trade_amount) +
+                                                     ' Major_id_order: ' + str(major_id_order))
+                # удаляем минорный ордер
+                def delete_ORDER_id(id_order):
+                    try:
+                        sql_query = 'DELETE FROM ORDERS WHERE id = ?'
+                        con.execute(sql_query, (id_order,))
+                    except Exception as error:
+                        print(error)
+                        self.statusBar().showMessage(str(error))
+
+                delete_ORDER_id(minor_id_order)
+
+                # редактируем мажорный ордер
+                #
+                # try:
+                #     sql_query = 'UPDATE ORDERS set amount = amount - ? where id = ?'
+                #     data = (trade_amount, major_id_order)
+                #     con.execute(sql_query, (data,))
+                # except Exception as error:
+                #     print(error)
+                #     self.statusBar().showMessage(str(error))
+
         else:
             self.statusBar().showMessage('Nothing to trade')
 
