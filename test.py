@@ -31,7 +31,7 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName("centralwidget")
 
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(250, 40, 400, 400))
+        self.label.setGeometry(QtCore.QRect(200, 40, 400, 400))
         self.label.setFrameShape(QtWidgets.QFrame.Panel)
         self.label.setFrameShadow(QtWidgets.QFrame.Plain)
         self.label.setStyleSheet('background-color: white')
@@ -50,51 +50,51 @@ class Ui_MainWindow(object):
 
         # button 2
         self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_2.setGeometry(QtCore.QRect(40, 40, 200, 30))
+        self.pushButton_2.setGeometry(QtCore.QRect(40, 40, 130, 30))
         self.pushButton_2.setStyleSheet("background-color: cyan")
         self.pushButton_2.setText("Создание БД")
 
         # button 3
         self.pushButton_3 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_3.setGeometry(QtCore.QRect(40, 80, 200, 30))
+        self.pushButton_3.setGeometry(QtCore.QRect(40, 80, 130, 30))
         self.pushButton_3.setStyleSheet("background-color: cyan")
-        self.pushButton_3.setText("Создание таблицы ордеров")
+        self.pushButton_3.setText("Создание таблицы \n ордеров")
 
         # button 4
         self.pushButton_4 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_4.setGeometry(QtCore.QRect(700, 40, 200, 30))
-        self.pushButton_4.setText("Запись в таблицу заявок пресета")
+        self.pushButton_4.setGeometry(QtCore.QRect(700, 40, 130, 30))
+        self.pushButton_4.setText("Запись в таблицу \n заявок пресета")
 
         # button 5
         self.pushButton_5 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_5.setGeometry(QtCore.QRect(700, 80, 200, 30))
-        self.pushButton_5.setText("Вывод таблицы ордеров")
+        self.pushButton_5.setGeometry(QtCore.QRect(700, 80, 130, 30))
+        self.pushButton_5.setText("Вывод таблицы \n ордеров")
 
         # button 6
         self.pushButton_6 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_6.setGeometry(QtCore.QRect(40, 280, 200, 30))
+        self.pushButton_6.setGeometry(QtCore.QRect(40, 280, 130, 30))
         self.pushButton_6.setStyleSheet("background-color: pink")
-        self.pushButton_6.setText("Удаление таблицы ордеров")
+        self.pushButton_6.setText("Удаление таблицы \n ордеров")
 
         # button 7
         self.pushButton_7 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_7.setGeometry(QtCore.QRect(40, 320, 200, 30))
+        self.pushButton_7.setGeometry(QtCore.QRect(40, 320, 130, 30))
         self.pushButton_7.setStyleSheet("background-color: pink")
         self.pushButton_7.setText("Удаление БД")
 
         # button 8
         self.pushButton_8 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_8.setGeometry(QtCore.QRect(700, 430, 200, 30))
+        self.pushButton_8.setGeometry(QtCore.QRect(700, 430, 130, 30))
         self.pushButton_8.setText("Добавка строки")
 
         # button 9
         self.pushButton_9 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_9.setGeometry(QtCore.QRect(340, 460, 200, 30))
+        self.pushButton_9.setGeometry(QtCore.QRect(340, 460, 130, 30))
         self.pushButton_9.setText("Сортировка")
 
         # button 10
         self.pushButton_10 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_10.setGeometry(QtCore.QRect(340, 500, 200, 30))
+        self.pushButton_10.setGeometry(QtCore.QRect(340, 500, 130, 30))
         self.pushButton_10.setText("Транзакция")
 
         # qline1
@@ -284,6 +284,12 @@ class Ui_MainWindow(object):
         self.pushButton_show_TRADES.setGeometry(900, 650, 130, 40)
         self.pushButton_show_TRADES.setText('Вывод таблицы \n сделок')
 
+        # button 11
+        self.pushButton_11 = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_11.setGeometry(QtCore.QRect(900, 700, 130, 40))
+        self.pushButton_11.setStyleSheet("background-color: pink")
+        self.pushButton_11.setText("Удаление таблицы \n сделок")
+
         # кнопка показа всех данных таблиц
         self.pushButton_show_all = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_show_all.setGeometry(1700, 800, 200, 100)
@@ -330,6 +336,7 @@ class mywindow(QtWidgets.QMainWindow):
         self.ui.pushButton_create_TRADES.clicked.connect(self.create_TRADES)
         self.ui.pushButton_show_TRADES.clicked.connect(self.show_TRADES_func)
         self.ui.pushButton_show_all.clicked.connect(self.show_all)
+        self.ui.pushButton_11.clicked.connect(self.del_TRADES)
 
         self.ui.radiobutton_ML_1.toggled.connect(self.rb_ml_1)
         self.ui.radiobutton_ML_2.toggled.connect(self.rb_ml_2)
@@ -339,6 +346,17 @@ class mywindow(QtWidgets.QMainWindow):
         # self.ui.combo.activated.connect(self.onActivated)
 
         self.initUi()
+
+    def del_TRADES(self):
+        con = sl.connect(data_base_path)
+        cur = con.cursor()
+        try:
+            cur.execute("DROP TABLE TRADES")
+            con.close()
+            self.statusBar().showMessage('Table of TRADES deleted')
+        except Exception as e:
+            print(e)
+            self.statusBar().showMessage(str(e))
 
     def onActivated(self):
         global data_combobox
@@ -361,7 +379,6 @@ class mywindow(QtWidgets.QMainWindow):
 
     def create_TRADES(self):
         con = sl.connect(data_base_path)
-        # cursor = con.cursor()
         try:
             con.execute("""CREATE TABLE TRADES (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, 
                 seller_name_client TEXT,
@@ -370,7 +387,6 @@ class mywindow(QtWidgets.QMainWindow):
                 amount INTEGER,
                 ticker TEXT,
                 datetime timestamp)""")
-
             self.statusBar().showMessage('Create TRADES executed succesful')
         except Exception as e:
             print(e)
@@ -413,26 +429,24 @@ class mywindow(QtWidgets.QMainWindow):
                     delete_ORDERS_id(seller[0])
 
                     # вносим изменения в таблице клиентов, по каждому клиенту
-                    # UPDATE CLIENTS SET cash = 0, amount =0 WHERE id = 1
-                    def update_CLIENTS(money, amount, name):
+                    def update_CLIENTS(money, amnt, name):
                         try:
-                            sql_query = 'UPDATE CLIENTS SET cash = ?, amount = ? where name_client = ?'
-                            data = (money, amount, name)
-                            con.execute(sql_query, (data,))
+                            sql_query = 'UPDATE CLIENTS SET cash = cash + ?, amount = amount + ? where name_client = ?'
+                            data = (money, amnt, name)
+                            print(data)
+                            con.execute(sql_query, data)
                             con.commit()
                         except Exception as error:
                             print(error)
                             self.statusBar().showMessage(str(error))
-                    update_CLIENTS(trade_money, trade_amount, buyer_name)
-                    update_CLIENTS(trade_money, trade_amount, seller_name)
+                    update_CLIENTS(-trade_money, trade_amount, buyer_name)
+                    update_CLIENTS(trade_money, -trade_amount, seller_name)
 
                     # создаем запись в таблице сделок
                     try:
-                        sql = 'INSERT INTO TABLE TRADES (id, seller_name_client, buyer_name_client,'
-                        ' price, amount, ticker, datetime) values (null, ?,?,?,?,?,?'
-                        data = (seller_name, buyer_name, sell_price, trade_amount,
-                                seller[6], datetime.today())
-                        con.executemany(sql, data)
+                        sql = 'INSERT INTO TRADES (seller_name_client, buyer_name_client, price, amount, ticker, datetime) values (?, ?, ?, ?, ?, ?)'
+                        data = (seller_name, buyer_name, sell_price, trade_amount, seller[6], datetime.today())
+                        con.executemany(sql, (data,))
                         cursor.execute('SELECT * FROM TRADES')
                         trades = cursor.fetchall()
                         self.ui.label_TRADES.setText(str(trades))
@@ -444,7 +458,8 @@ class mywindow(QtWidgets.QMainWindow):
                     con.close()
                     self.statusBar().showMessage(
                         'OK' + "    delta_price = " + str(delta_price) + '  delta_amount = ' + str(delta_amount))
-                else:
+
+                else: # более общий случай неравенства кол-ва акций сделки
                     con = sl.connect(data_base_path)
                     cursor = con.cursor()
                     # определяем минорный и мажорный ордер
@@ -477,12 +492,43 @@ class mywindow(QtWidgets.QMainWindow):
                         try:
                             sql_query = 'UPDATE ORDERS set amount = amount - ? where id = ?'
                             data = (amount, id_order)
-                            con.execute(sql_query, (data,))
+                            con.execute(sql_query, data)
                             con.commit()
                         except Exception as error:
                             print(error)
                             self.statusBar().showMessage(str(error))
                     update_order(trade_amount, major_id_order)
+
+                    # вносим изменения в таблице клиентов, по каждому клиенту
+                    def update_CLIENTS(money, amnt, name):
+                        try:
+                            sql_query = 'UPDATE CLIENTS SET cash = cash + ?, amount = amount + ? where name_client = ?'
+                            data = (money, amnt, name)
+                            print(data)
+                            con.execute(sql_query, data)
+                            con.commit()
+                        except Exception as error:
+                            print(error)
+                            self.statusBar().showMessage(str(error))
+                    update_CLIENTS(-trade_money, trade_amount, buyer_name)
+                    update_CLIENTS(trade_money, -trade_amount, seller_name)
+
+                    # создаем запись в таблице сделок
+                    try:
+                        sql = 'INSERT INTO TRADES (seller_name_client, buyer_name_client, price, amount, ticker, datetime) values (?, ?, ?, ?, ?, ?)'
+                        data = (seller_name, buyer_name, sell_price, trade_amount, seller[6], datetime.today())
+                        con.executemany(sql, (data,))
+                        cursor.execute('SELECT * FROM TRADES')
+                        trades = cursor.fetchall()
+                        self.ui.label_TRADES.setText(str(trades))
+                        self.statusBar().showMessage('Insert to TRADES executed succesful')
+                    except Exception as error:
+                        print(error)
+                        self.statusBar().showMessage(str(error))
+                    con.commit()
+                    con.close()
+                    self.statusBar().showMessage(
+                        'OK' + "    delta_price = " + str(delta_price) + '  delta_amount = ' + str(delta_amount))
 
             else:
                 self.statusBar().showMessage('Nothing to trade')
@@ -529,9 +575,13 @@ class mywindow(QtWidgets.QMainWindow):
 
         try:
             sql = 'INSERT INTO CLIENTS (id, name_client, cash, amount, ticker, datetime) values(null, ?, ?, ?, ?, ?)'
-            data = [('Alice', 1000000000, 1000, 'YNDX', datetime.today()),
+            data = [('Alice', 1000000, 1000, 'YNDX', datetime.today()),
                     ('Bob', 2000000, 1100, 'YNDX', datetime.today()),
-                    ('Mikle', 9000000, 800, 'YNDX', datetime.today())]
+                    ('Mikle', 9000000, 800, 'YNDX', datetime.today()),
+                    ('Nick', 7830000, 200, 'YNDX', datetime.today()),
+                    ('George', 3806000, 250, 'YNDX', datetime.today()),
+                    ('Oleg', 7820000, 800, 'YNDX', datetime.today()),
+                    ('Alex', 7430000, 2000, 'YNDX', datetime.today())]
             with con:
                 con.executemany(sql, data)
             self.statusBar().showMessage('INSERT executed succesful')
@@ -544,7 +594,7 @@ class mywindow(QtWidgets.QMainWindow):
             product = cursor.fetchall()  # вытаскиваем содержимое бд в виде списка
             a = '\n'.join(map(str, product))  # разбиваем список переносом строки
             self.ui.label_CLIENTS.setText(a)
-            self.statusBar().showMessage('DATA IS SHOWED')
+            # self.statusBar().showMessage('DATA IS SHOWED')
         except Exception as error:
             print(error)
             self.statusBar().showMessage(str(error))
@@ -675,9 +725,12 @@ class mywindow(QtWidgets.QMainWindow):
             sql = 'INSERT INTO ORDERS (id, name_client, order_type, buy_sell, price, amount, ticker, datetime)' \
                   ' values(null, ?, ?, ?, ?, ?, ?, ?)'
             data = [('Alice', 'Limit', 'BUY', 900, 10, 'YNDX', datetime.today()),
-                    ('Bob', 'Limit', 'SELL', 1100, 1, 'YNDX', datetime.today()),
+                    ('Bob', 'Limit', 'SELL', 700, 1, 'YNDX', datetime.today()),
                     ('Mikle', 'Limit', 'BUY', 800, 5, 'YNDX', datetime.today()),
-                    ('George', 'Limit', 'Sell', 850, 10, 'YNDX', datetime.today())]
+                    ('George', 'Limit', 'BUY', 850, 2, 'YNDX', datetime.today()),
+                    ('Alex', 'Limit', 'Sell', 800, 200, 'YNDX', datetime.today()),
+                    ('Nick', 'Limit', 'BUY', 820, 5, 'YNDX', datetime.today()),
+                    ('Oleg', 'Limit', 'BUY', 820, 15, 'YNDX', datetime.today())]
             with con:
                 con.executemany(sql, data)
             self.statusBar().showMessage('INSERT executed succesful')

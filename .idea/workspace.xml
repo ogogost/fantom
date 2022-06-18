@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="22ef6a0b-a799-42ea-9696-00125e5ee605" name="Changes" comment="транзацкия_продолжение">
+    <list default="true" id="22ef6a0b-a799-42ea-9696-00125e5ee605" name="Changes" comment="180622">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mylog.log" beforeDir="false" afterPath="$PROJECT_DIR$/mylog.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/not_GUI_version.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/select_sqlite3.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/show_table.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/test.db" beforeDir="false" afterPath="$PROJECT_DIR$/test.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
@@ -244,7 +241,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654345461610</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="180622">
+      <created>1655505093458</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1655505093458</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -265,6 +269,7 @@
     <MESSAGE value="300921" />
     <MESSAGE value="300921-2" />
     <MESSAGE value="таблица клиентов и кнопки" />
-    <option name="LAST_COMMIT_MESSAGE" value="таблица клиентов и кнопки" />
+    <MESSAGE value="180622" />
+    <option name="LAST_COMMIT_MESSAGE" value="180622" />
   </component>
 </project>
