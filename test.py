@@ -534,6 +534,7 @@ class mywindow(QtWidgets.QMainWindow):
                 self.statusBar().showMessage('Nothing to trade')
         else:
             None
+
     def add_string_CLIENTS(self):
         name_client = self.ui.lineEdit_7.text()
         cash = self.ui.lineEdit_8.text()

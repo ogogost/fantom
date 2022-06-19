@@ -189,3 +189,7 @@
 20:07:15 - test - INFO - <module>: 22 - Start script
 20:07:18 - test - INFO - show_CLIENTS_func: 613 - DATA from CLIENTS is showed
 20:07:35 - test - INFO - show_CLIENTS_func: 613 - DATA from CLIENTS is showed
+02:37:52 - main - INFO - <module>: 22 - Start script
+02:37:54 - main - INFO - show_CLIENTS_func: 575 - DATA from CLIENTS is showed
+02:52:09 - main - INFO - <module>: 22 - Start script
+02:52:53 - main - INFO - <module>: 22 - Start script
