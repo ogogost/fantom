@@ -8,8 +8,7 @@ from PyQt5 import QtCore, QtWidgets
 
 # Variables
 data_base_path = 'test.db'
-buy_list_sorted = ()
-sell_list_sorted = ()
+
 data_combobox = (['111', '222'])
 
 logging.basicConfig(
@@ -39,7 +38,7 @@ class Ui_MainWindow(object):
         self.label.setObjectName("label")
 
         self.status_monitor = QtWidgets.QLabel(self.centralwidget)
-        self.status_monitor.setGeometry(200, 600, 500, 400)
+        self.status_monitor.setGeometry(20, 600, 500, 400)
         self.status_monitor.setFrameShape(QtWidgets.QFrame.Panel)
         self.status_monitor.setFrameShadow(QtWidgets.QFrame.Plain)
 
@@ -270,24 +269,24 @@ class Ui_MainWindow(object):
         # раздел с таблицей сделок
 
         self.label_TRADES = QtWidgets.QLabel(self.centralwidget)
-        self.label_TRADES.setGeometry(1100, 600, 500, 400)
+        self.label_TRADES.setGeometry(700, 600, 500, 400)
         self.label_TRADES.setFrameShape(QtWidgets.QFrame.Panel)
         self.label_TRADES.setFrameShadow(QtWidgets.QFrame.Plain)
 
         # кнопка создания таблицы
         self.pushButton_create_TRADES = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_create_TRADES.setGeometry(900, 600, 130, 40)
+        self.pushButton_create_TRADES.setGeometry(550, 600, 130, 40)
         self.pushButton_create_TRADES.setText('Создание таблицы \n сделок')
         self.pushButton_create_TRADES.setStyleSheet("background-color: cyan")
 
         # кнопка вывода таблицы
         self.pushButton_show_TRADES = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_show_TRADES.setGeometry(900, 650, 130, 40)
+        self.pushButton_show_TRADES.setGeometry(550, 650, 130, 40)
         self.pushButton_show_TRADES.setText('Вывод таблицы \n сделок')
 
         # button 11
         self.pushButton_11 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_11.setGeometry(QtCore.QRect(900, 700, 130, 40))
+        self.pushButton_11.setGeometry(QtCore.QRect(550, 700, 130, 40))
         self.pushButton_11.setStyleSheet("background-color: pink")
         self.pushButton_11.setText("Удаление таблицы \n сделок")
 
@@ -396,8 +395,42 @@ class mywindow(QtWidgets.QMainWindow):
         con.close()
 
     def transaction(self):
-        global buy_list_sorted
-        global sell_list_sorted
+        buy_list_sorted = ()
+        sell_list_sorted = ()
+
+        con = sl.connect(data_base_path)
+        cursor = con.cursor()
+        try:
+            cursor.execute("SELECT * FROM ORDERS")
+            product = cursor.fetchall()  # вытаскиваем содержимое таблицы ордеров в виде списка
+            buy_list = []  # создаём пустые списки
+            sell_list = []  # создаём пустые списки
+            for i in product:  # цикл добавляет строки из бд по наличию слова BUY в списке
+                if i[3] == 'BUY':
+                    buy_list.append(i)
+                else:
+                    sell_list.append(i)
+            # сортируем каждый список по величине цены
+            buy_list_sorted = sorted(buy_list, key=lambda buy_list: buy_list[4], reverse=True)
+            sell_list_sorted = sorted(sell_list, key=lambda sell_list: sell_list[4])
+
+            def fun(v):  # вспомогательная функция для сортировки заявок по времени
+                return (v[4], v[7])
+
+            # сортируем по функции, в случае одинаковой цены, приоритет по времени заявки
+            buy_list_sorted.sort(key=fun)
+            sell_list_sorted.sort(key=fun)
+            a = '\n'.join(map(str, buy_list_sorted))
+            b = '\n'.join(map(str, sell_list_sorted))
+            self.ui.status_monitor.setText(str(a) + '\n' + '\n' + str(b))
+            con.commit()
+            con.close()
+            self.statusBar().showMessage('ORDERS is sorted')
+
+        except Exception as error:
+            print(error)
+            self.statusBar().showMessage(str(error))
+        con.close()
 
         if len(buy_list_sorted) > 0 and len(sell_list_sorted) > 0:
             buyer = buy_list_sorted[-1]
@@ -438,7 +471,8 @@ class mywindow(QtWidgets.QMainWindow):
                     con.executemany(sql, (data,))
                     cursor.execute('SELECT * FROM TRADES')
                     trades = cursor.fetchall()
-                    self.ui.label_TRADES.setText(str(trades))
+                    a = '\n'.join(map(str, trades))  # разбиваем список переносом строки
+                    self.ui.label_TRADES.setText(a)
                     self.statusBar().showMessage('Insert to TRADES executed succesful')
                 except Exception as error:
                     print(error)
@@ -449,7 +483,6 @@ class mywindow(QtWidgets.QMainWindow):
                     'OK' + "    delta_price = " + str(delta_price) + '  delta_amount = ' + str(delta_amount))
 
                 # определяем минорный и мажорный ордер
-
                 if int(buyer[5]) < int(seller[5]):
                     minor_id_order = buyer[0]
                     major_id_order = seller[0]
@@ -457,21 +490,7 @@ class mywindow(QtWidgets.QMainWindow):
                     minor_id_order = seller[0]
                     major_id_order = buyer[0]
 
-                # pair = [buyer, seller]
-                # id_pairs = [buyer[0],seller[0]]
-                # minor_id_order = 0
-                # major_id_order = 0
-                # for i in pair:
-                #     if i[5] == trade_amount:
-                #         minor_id_order = i[0]
-                #         id_pairs.remove(minor_id_order)
-                #         major_id_order = id_pairs[0]
-                #         self.statusBar().showMessage('Minor_id_order: ' + str(minor_id_order) +
-                #                                      ' Trade_amount: ' + str(trade_amount) +
-                #                                      ' Major_id_order: ' + str(major_id_order))
-
                 # удаляем минорный ордер
-
                 def delete_ORDER_id(id_order):
                     try:
                         sql_query = 'DELETE FROM ORDERS WHERE id = ?'
