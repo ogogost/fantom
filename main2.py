@@ -13,10 +13,10 @@ data_combobox = (['111', '222'])
 
 logging.basicConfig(
     level=logging.DEBUG,
-    filename = "mylog.log",
-    format = "%(asctime)s - %(module)s - %(levelname)s - %(funcName)s: %(lineno)d - %(message)s",
+    filename="mylog.log",
+    format="%(asctime)s - %(module)s - %(levelname)s - %(funcName)s: %(lineno)d - %(message)s",
     datefmt='%H:%M:%S',
-    )
+)
 
 logging.info('Start script')
 
@@ -430,7 +430,7 @@ class mywindow(QtWidgets.QMainWindow):
         except Exception as error:
             print(error)
             self.statusBar().showMessage(str(error))
-        con.close()
+        # con.close()
 
         if len(buy_list_sorted) > 0 and len(sell_list_sorted) > 0:
             buyer = buy_list_sorted[-1]
@@ -444,7 +444,7 @@ class mywindow(QtWidgets.QMainWindow):
             trade_money = trade_amount * sell_price
 
             self.ui.label_TRADES.setText(str(buyer) + "\n" + str(seller)
-                                     + "\n" + str(buyer[0]) + "\n" + str(seller[0]))
+                                         + "\n" + str(buyer[0]) + "\n" + str(seller[0]))
 
             if int(buyer[4]) >= int(seller[4]):
 
@@ -461,6 +461,7 @@ class mywindow(QtWidgets.QMainWindow):
                     except Exception as error:
                         print(error)
                         self.statusBar().showMessage(str(error))
+
                 update_CLIENTS(-trade_money, trade_amount, buyer_name)
                 update_CLIENTS(trade_money, -trade_amount, seller_name)
 
@@ -512,6 +513,7 @@ class mywindow(QtWidgets.QMainWindow):
                     except Exception as error:
                         print(error)
                         self.statusBar().showMessage(str(error))
+
                 update_order(trade_amount, major_id_order)
             else:
                 self.statusBar().showMessage('Error of comparision')
