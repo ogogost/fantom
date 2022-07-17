@@ -265,6 +265,14 @@
 13:31:18 - main2 - INFO - <module>: 21 - Start script
 13:31:35 - main2 - INFO - <module>: 21 - Start script
 13:31:57 - main2 - INFO - show_CLIENTS_func: 597 - DATA from CLIENTS is showed
+20:56:13 - main2 - INFO - <module>: 21 - Start script
+20:56:33 - main2 - INFO - show_CLIENTS_func: 597 - DATA from CLIENTS is showed
+20:56:34 - main2 - INFO - show_CLIENTS_func: 597 - DATA from CLIENTS is showed
+20:57:42 - main2 - INFO - <module>: 21 - Start script
+20:57:45 - main2 - INFO - show_CLIENTS_func: 597 - DATA from CLIENTS is showed
+20:58:58 - main2 - INFO - <module>: 21 - Start script
+20:59:00 - main2 - INFO - show_CLIENTS_func: 597 - DATA from CLIENTS is showed
+21:02:22 - main2 - INFO - <module>: 21 - Start script
 15:33:21 - main2 - INFO - <module>: 21 - Start script
 15:33:23 - main2 - INFO - show_CLIENTS_func: 597 - DATA from CLIENTS is showed
 15:33:50 - main2 - INFO - show_CLIENTS_func: 597 - DATA from CLIENTS is showed
@@ -295,3 +303,16 @@
 08:04:01 - main2 - INFO - show_CLIENTS_func: 599 - DATA from CLIENTS is showed
 08:04:12 - main2 - INFO - show_CLIENTS_func: 599 - DATA from CLIENTS is showed
 08:04:12 - main2 - INFO - show_CLIENTS_func: 599 - DATA from CLIENTS is showed
+10:42:21 - main - INFO - <module>: 22 - Start script
+10:42:27 - main - INFO - show_CLIENTS_func: 578 - DATA from CLIENTS is showed
+10:42:58 - main - INFO - show_CLIENTS_func: 578 - DATA from CLIENTS is showed
+10:47:29 - main - INFO - <module>: 22 - Start script
+10:47:33 - main - INFO - show_CLIENTS_func: 578 - DATA from CLIENTS is showed
+10:48:03 - main - INFO - show_CLIENTS_func: 578 - DATA from CLIENTS is showed
+10:48:03 - main - INFO - show_CLIENTS_func: 578 - DATA from CLIENTS is showed
+10:48:04 - main - INFO - show_CLIENTS_func: 578 - DATA from CLIENTS is showed
+12:19:06 - main - INFO - <module>: 22 - Start script
+12:19:10 - main - INFO - show_CLIENTS_func: 578 - DATA from CLIENTS is showed
+12:19:56 - main - INFO - show_CLIENTS_func: 578 - DATA from CLIENTS is showed
+12:19:57 - main - INFO - show_CLIENTS_func: 578 - DATA from CLIENTS is showed
+12:19:57 - main - INFO - show_CLIENTS_func: 578 - DATA from CLIENTS is showed

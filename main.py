@@ -440,11 +440,12 @@ class mywindow(QtWidgets.QMainWindow):
                     trades = cursor.fetchall()
                     self.ui.label_TRADES.setText(str(trades))
                     self.statusBar().showMessage('Insert to TRADES executed succesful')
+                    con.commit()
+                    # con.close()
                 except Exception as error:
                     print(error)
                     self.statusBar().showMessage(str(error))
-                con.commit()
-                # con.close()
+
                 self.statusBar().showMessage(
                     'OK' + "    delta_price = " + str(delta_price) + '  delta_amount = ' + str(delta_amount))
 
@@ -480,7 +481,6 @@ class mywindow(QtWidgets.QMainWindow):
                     except Exception as error:
                         print(error)
                         self.statusBar().showMessage(str(error))
-
                 delete_ORDER_id(minor_id_order)
 
                 # редактируем мажорный ордер
