@@ -69,16 +69,16 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.names_rand.executor": "Run",
-    "Python.ram_stock_core.executor": "Run",
-    "Python.ugar1.executor": "Run",
-    "git-widget-placeholder": "Merging main",
-    "last_opened_file_path": "C:/Users/Work/PycharmProjects/fantom",
-    "settings.editor.selected.configurable": "vcs.Git"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.names_rand.executor&quot;: &quot;Run&quot;,
+    &quot;Python.ram_stock_core.executor&quot;: &quot;Run&quot;,
+    &quot;Python.ugar1.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Merging main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Work/PycharmProjects/fantom&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Work\PycharmProjects\fantom" />
