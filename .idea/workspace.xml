@@ -5,16 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="22ef6a0b-a799-42ea-9696-00125e5ee605" name="Changes" comment="150722">
-      <change afterPath="$PROJECT_DIR$/3d_earth.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/names.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/names_rand.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ram_stock_core.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ugar1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TEST_1.db" beforeDir="false" afterPath="$PROJECT_DIR$/TEST_1.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bar.py" beforeDir="false" afterPath="$PROJECT_DIR$/bar.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mylog.log" beforeDir="false" afterPath="$PROJECT_DIR$/mylog.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.db" beforeDir="false" afterPath="$PROJECT_DIR$/test.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,9 +74,9 @@
     "Python.names_rand.executor": "Run",
     "Python.ram_stock_core.executor": "Run",
     "Python.ugar1.executor": "Run",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Merging main",
     "last_opened_file_path": "C:/Users/Work/PycharmProjects/fantom",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+    "settings.editor.selected.configurable": "vcs.Git"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -324,7 +319,8 @@
     <MESSAGE value="таблица клиентов и кнопки" />
     <MESSAGE value="200622 добивка транзакций" />
     <MESSAGE value="150722" />
-    <option name="LAST_COMMIT_MESSAGE" value="150722" />
+    <MESSAGE value="230524" />
+    <option name="LAST_COMMIT_MESSAGE" value="230524" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
