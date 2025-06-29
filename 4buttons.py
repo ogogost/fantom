@@ -10,7 +10,7 @@ import sqlite3
 
 # Variables
 data_base_path = '4buttons.db'
-flag_of_bot = True
+bot.flag_of_bot = True
 con = sqlite3.connect(data_base_path)
 sqlite3.connect(data_base_path, check_same_thread=False)
 
@@ -93,17 +93,17 @@ class mywindow(QtWidgets.QMainWindow):
 
 
     def Thread_1(self):
-        my_thread1 = Mythread()
+        my_thread1 = Mythread(self.ui)
         my_thread1.start()
 
     def stop_function(self):
-        global flag_of_bot
-        flag_of_bot = False
+        bot.flag_of_bot = False
 
 
 class Mythread(Thread):
-    def __init__(self):
-        Thread.__init__(self)
+    def __init__(self, ui):
+        super().__init__()
+        self.ui = ui
 
     def run(self):
         print('Thread is started')
